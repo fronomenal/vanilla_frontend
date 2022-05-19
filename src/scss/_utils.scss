@@ -1,0 +1,7 @@
+.btn {
+    @include btn($primary-color);
+}
+
+.btn-orange {
+    @include btn($tertiary-color);
+}
