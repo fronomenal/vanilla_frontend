@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="www/css/style.css">
   <title>Clear View Escapes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="keywords" content="Travel planning, travel bundles, travel escapes">
   <meta name="description" content="Your clarity. One trip away. We create soul restoring journeys that inspire you to be you.">
 </head>
@@ -23,15 +23,17 @@
 
   <div class="large-hero">
     <picture>
-      <source srcset="assets/imgs/hero--large.webp" type="image/webp">
-      <img src="assets/imgs/hero--large.jpg" alt="large photo of hero">
+      <source srcset="assets/imgs/hero--large.webp 1920w, assets/imgs/hero--large-hi-dpi.webp 3840w" media="only screen and (min-width: 1160px)" type="image/webp" alt="Mountain Coast Image">
+      <source srcset="assets/imgs/hero--medium.webp 1380w, assets/imgs/hero--medium-hi-dpi.webp 2760w" media="only screen and (min-width: 860px)" type="image/webp" alt="Mountain Coast Image">
+      <source srcset="assets/imgs/hero--small.webp 990w, assets/imgs/hero--small-hi-dpi.webp 1980w" media="only screen and (min-width: 560px)" type="image/webp" alt="Mountain Coast Image">
+      <img srcset="assets/imgs/hero--smaller.jpg 640w, assets/imgs/hero--smaller-hi-dpi.jpg 1280w" alt="large photo of hero" alt="Mountain Coast Image">
     </picture>
-    <section class="large-hero_banner-section">
-      <h1>Your clarity.</h1>
+    <div class="large-hero_banner-section">
+      <h1 id="high">Your clarity.</h1>
       <h2>One trip away.</h2>
       <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus, eum?</p>
       <p><a  class="btn-orange" href="#">Get Started Today</a></p>
-    </section>
+    </div>
   </div>
 
   <div id="our-beginning">

@@ -46,8 +46,8 @@ function webpImage() {
 function watchTask(){
     gulp.watch('src/scss/*.scss', compilescss); 
     gulp.watch('src/js/*.js', jsmin); 
-    gulp.watch('src/images/*', optimizeimg); 
-    gulp.watch('dist/images/*.{jpg,png}', webpImage); 
+    //gulp.watch('src/images/*', optimizeimg); 
+    //gulp.watch('dist/images/*.{jpg,png}', webpImage); 
 }
 
 
@@ -55,7 +55,7 @@ function watchTask(){
 export default gulp.series(
   compilescss,
   jsmin,
-  optimizeimg,
-  webpImage,
+  //optimizeimg,
+  //webpImage,
   watchTask
 );
