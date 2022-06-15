@@ -43,7 +43,7 @@ function webpImage() {
 };
 
 
-function watchTask(){
+export function watchTask(){
     gulp.watch('src/scss/*.scss', compilescss); 
     gulp.watch('src/js/*.js', jsmin); 
     //gulp.watch('src/images/*', optimizeimg); 
