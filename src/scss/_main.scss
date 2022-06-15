@@ -1,5 +1,6 @@
 .large-hero {
     position: relative;
+    border-bottom: 10px solid $primary-color;
 
     &_banner-section {
         position: absolute;
@@ -65,6 +66,92 @@
             font-size: 1.25rem;
             padding: 1.1rem 1.9rem;
         }
+    }
+    
+    img {
+        display: block;
+    }
+}
+
+#our-beginning {
+
+    text-align: center;
+
+    .headline{
+        text-align: center;
+        padding-bottom: 1.5rem;
+    }
+
+    .headline:nth-child(1){
+        font-weight: 100;
+        
+    }
+
+    .headline:nth-child(2){
+        display: inline-block;
+        max-width: 360px;
+        padding-bottom: 2.5rem;
+        color: $tertiary-color;
+        font-size: 1.875rem;
+    }
+
+    .headline:nth-of-type(2){
+        font-weight: 100;
+
+    }
+
+    section {
+        display: block;
+        padding-top: 2.875rem;
+        gap: 30px;
+
+        text-align: justify;
+
+        .headline{
+            padding-top: 1.5rem;
+        }
+
+        p {
+            font-size: large;
+        }
+
+        div:first-child{
+
+            width: fit-content;
+            margin: auto;
+        }
+
+        div:last-child {
+            flex-basis: 63%;
+            align-self:flex-start;
+            justify-self: center;
+
+            p {
+                margin: 1rem 0;
+
+                a {
+                    font-weight: 600;
+                }
+            }
+        }
+
+        @include scScmall{
+            display: flex;
+
+            .headline{
+                padding-top: 0;
+            }
+        }
+
+    }
+
+}
+
+#features {
+
+    .spacer {
+        background-color: $primary-color;
+        color: hsl(0, 0%, 100%);
     }
 }
 

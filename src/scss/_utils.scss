@@ -7,3 +7,26 @@
 .btn-orange {
     @include btn($tertiary-color);
 }
+
+
+//Sections
+.wrapper {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.spacer {
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+}
+
+.headline {
+    font-weight: 300;
+    font-size: 2.875rem;
+    color: $primary-color;
+}
+
+//layouts
