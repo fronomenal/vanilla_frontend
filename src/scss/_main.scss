@@ -149,7 +149,7 @@
 
 #features {
 
-    .spacer {
+    section {
         display: block;
         grid-template-columns: 1fr 1fr;
         gap: 3rem;
@@ -181,6 +181,7 @@
             text-align: center;
 
             h2 {
+                display: inline;
                 position: relative;
                 font-size: 2.75rem;
                 font-weight: 300;
@@ -189,7 +190,7 @@
             img {
                 position: absolute;
                 top: -15px;
-                left: 30px;
+                left: -75px;
             }
 
             strong{
@@ -203,11 +204,6 @@
 
             .main{
                 margin-bottom: 4.5rem;
-
-                img {
-                    top: -15px;
-                    left: -75px;
-                }
             }
 
             .sub{
@@ -216,5 +212,86 @@
 
         }
     }
+}
+
+#testimonials{
+
+    section{
+        background: url('../../assets/imgs/testimonials-bg.jpg')top center no-repeat;
+        background-size: cover;
+        
+        color: hsl(0, 0%, 100%);
+
+        .subs{
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+            width: 90%;
+
+            div{
+                flex-grow: 1;
+                justify-content: space-between;
+                flex-basis: 25%;
+            }
+
+            h3 {
+                margin: 0.5rem 0;
+                font-size: 1.875rem;
+                font-weight: 300;
+            }
+
+            p {
+                line-height: 1.5;
+                font-weight: 300;
+            }
+        }
+
+        .main{
+            margin: 0 auto;
+            margin-top: 3rem;
+            margin-bottom: 6rem;
+            text-align: center;
+
+            h2 {
+                position: relative;
+                display: inline;
+                font-size: 2.75rem;
+                font-weight: 300;
+                color: $primary-color;
+
+                strong{
+                    font-weight: 500;
+                }
+
+                img {
+                    display: block;
+                    margin: 0 auto;
+                }
+            }
+        }
+
+        @include scScmall{
+
+            .main{
+                margin-bottom: 4.5rem;
+
+                h2 {
+                    position: relative;
+                }
+
+                img {
+                    position: absolute;
+                    top: -15px;
+                    left:  -75px;
+                }
+            }
+
+            .subs{
+                flex-direction: row;
+            }
+
+        }
+    }
+
 }
 
