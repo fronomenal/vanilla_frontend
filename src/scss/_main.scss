@@ -152,13 +152,13 @@
     section {
         display: block;
         grid-template-columns: 1fr 1fr;
-        gap: 3rem;
+        gap: 30px;
 
         background-color: $primary-color;
         color: hsl(0, 0%, 100%);
 
         .sub{
-            max-width: 460px;
+            max-width: 360px;
             margin: 3rem auto 0 auto;
 
             h3 {
@@ -185,16 +185,16 @@
                 position: relative;
                 font-size: 2.75rem;
                 font-weight: 300;
+
+                strong{
+                    font-weight: 600;
+                }
             }
 
             img {
                 position: absolute;
                 top: -15px;
                 left: -75px;
-            }
-
-            strong{
-                font-weight: 500;
             }
         }
 
@@ -217,14 +217,14 @@
 #testimonials{
 
     section{
-        background: url('../../assets/imgs/testimonials-bg.jpg')top center no-repeat;
-        background-size: cover;
+        background-color: hsl(206, 42%, 75%);
         
-        color: hsl(0, 0%, 100%);
+        color: hsl(0, 0%, 0%);
 
         .subs{
             display: flex;
             flex-direction: column;
+            gap: 60px;
             margin: 0 auto;
             width: 90%;
 
@@ -232,12 +232,42 @@
                 flex-grow: 1;
                 justify-content: space-between;
                 flex-basis: 25%;
+                padding: 0 1.8125rem 1px 1.8125rem;
+                background: linear-gradient(hsla(0, 0%, 100%, 0), hsla(0, 0%, 100%, 0.7));
+
+                img{
+                    display: block;
+                    top: -80px;
+                    border: 6px solid hsla(0, 0%, 100%, 0.7);
+                    border-radius: 50%;
+                    margin: 0 auto 15px auto;
+                }
+
+                h3{
+                    color: $primary-color;
+                    text-align: center;
+                    font-size: 1.5rem;
+                    font-weight: 500;
+                    margin: 0;
+                }
+
+                h4{
+                    color: $tertiary-color;
+                    text-align: center;
+                    font-size: 0.9375rem;
+                    font-weight: 400;
+                    margin: .25rem 0 1rem 0;
+                }
+
+                p{
+                    line-height: 1.5;
+                    font-weight: 300;
+                }
             }
 
             h3 {
                 margin: 0.5rem 0;
                 font-size: 1.875rem;
-                font-weight: 300;
             }
 
             p {
@@ -260,7 +290,7 @@
                 color: $primary-color;
 
                 strong{
-                    font-weight: 500;
+                    font-weight: 600;
                 }
 
                 img {
@@ -271,6 +301,8 @@
         }
 
         @include scScmall{
+            background: url('../../assets/imgs/testimonials-bg.jpg')top center no-repeat;
+            background-size: cover;
 
             .main{
                 margin-bottom: 4.5rem;
@@ -288,6 +320,7 @@
 
             .subs{
                 flex-direction: row;
+                gap: 15px;
             }
 
         }
