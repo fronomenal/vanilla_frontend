@@ -1,0 +1,21 @@
+footer {
+    background-color: $primary-color;
+    padding: .5rem 0;
+
+    p{
+        text-align: center;
+        font-weight: 100;
+        color: hsl(0, 0%, 100%);
+
+        a {
+            margin-top: .5rem;
+        }
+    }
+
+    @include scScmall{
+        p > a{
+            margin: 0;
+        }
+
+    }
+}
