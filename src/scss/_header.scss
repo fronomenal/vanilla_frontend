@@ -1,0 +1,78 @@
+header {
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    padding: 10px 0px;
+    background-color: hsla(206, 42%, 32%, .3);
+
+    .banner {
+        position: absolute;
+        width: 150px;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 9px;
+        background-color: $primary-color;
+    }
+
+    .burger{
+        position: absolute;
+        cursor: pointer;
+
+        span{
+            display: block;
+            width: 30px;
+            height: 6px;
+            border-radius: 15%;
+            background-color: $primary-color;
+            margin: 3px 0;
+        }
+    }
+
+    nav {
+
+        opacity: 0;
+        transform: translateY(-100%);
+        
+        float: right;
+
+        li{
+            float: left;
+            list-style: none;
+            padding: .75rem .5rem;
+            
+            a{
+                text-decoration: none;
+                color: hsl(0, 0%, 75%);
+            }
+        }
+
+        a{
+            margin-left: .5rem;
+        }
+
+        &::after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+    }
+
+    @include scScmall{
+
+        .banner{
+            left: auto;
+            transform: translateX(0);
+        }
+
+        .burger{
+            display: none;
+        }
+
+        nav {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
