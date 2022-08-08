@@ -8,7 +8,7 @@ import imagemin from 'gulp-imagemin';
 import imageminMozjpeg from 'imagemin-mozjpeg';
 import imageminOptipng from 'imagemin-optipng';
 import imagewebp from 'gulp-webp';
-
+import gulpEsbuild from 'gulp-esbuild';
 
 function compilescss() {
   return gulp.src('src/scss/*.scss')
@@ -20,9 +20,9 @@ function compilescss() {
 
 
 function jsmin(){
-    return gulp.src('src/js/*.js') 
-      .pipe(terser())
-      .pipe(gulp.dest('app/www/js')); 
+  return gulp.src('src/js/*.js') 
+    .pipe(terser())
+    .pipe(gulp.dest('app/www/js')); 
   }
 
 
@@ -45,16 +45,39 @@ function webpImage() {
 
 export function watchTask(){
     gulp.watch('src/scss/*.scss', compilescss); 
-    gulp.watch('src/js/*.js', jsmin); 
+    gulp.watch('src/js/main.js', bundle);
+    // gulp.watch('src/js/main.js', jsmin); 
     //gulp.watch('src/images/*', optimizeimg); 
     //gulp.watch('dist/images/*.{jpg,png}', webpImage); 
 }
 
 
- 
+const isProd = (process.env.NODE_ENV == "Production")? true : false;
+
+export function bundle(){
+  return gulp.src('src/js/main.js')
+    .pipe(gulpEsbuild({
+      bundle: true,
+      minify: isProd,
+      sourcemap: !isProd,
+      target: [
+        'es6',
+        'chrome71',
+        'firefox78',
+        'safari12.1'
+      ],
+      outfile: "bundle.js",
+      bundle: true
+    }))
+    .pipe(gulp.dest('app/www/js'))
+}
+
+
+
 export default gulp.series(
   compilescss,
-  jsmin,
+  bundle,
+  //jsmin,
   //optimizeimg,
   //webpImage,
   watchTask
