@@ -5,7 +5,6 @@ export default class Burger {
     constructor(){
         this.button = jQuery(".burger");
         this.menu = jQuery("header nav");
-        this.registerEvents();
     }
 
     registerEvents(){

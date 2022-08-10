@@ -158,8 +158,10 @@
         color: hsl(0, 0%, 100%);
 
         .sub{
+            visibility: hidden;
             max-width: 360px;
             margin: 3rem auto 0 auto;
+            transform: translateY(50vw);
 
             h3 {
                 margin: 0.5rem 0;
@@ -171,6 +173,11 @@
                 line-height: 1.5;
                 font-weight: 300;
             }
+        }
+        .reveal{
+            visibility: visible;
+            transition-duration: .3s;
+            transform: translateY(0);
         }
 
         .main{
@@ -222,9 +229,12 @@
         color: hsl(0, 0%, 0%);
 
         .subs{
+            visibility: hidden;
+            opacity: 1;
             display: flex;
             flex-direction: column;
             gap: 60px;
+            transform: scale(1.1);
             margin: 0 auto;
             width: 90%;
 
@@ -274,6 +284,13 @@
                 line-height: 1.5;
                 font-weight: 300;
             }
+        }
+        
+        .reveal{
+            visibility: visible;
+            transition-duration: .9s;
+            transform: scale(1);
+            opacity: 1;
         }
 
         .main{

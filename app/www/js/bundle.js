@@ -60,7 +60,7 @@
         var isWindow = function isWindow2(obj) {
           return obj != null && obj === obj.window;
         };
-        var document = window2.document;
+        var document2 = window2.document;
         var preservedScriptAttributes = {
           type: true,
           src: true,
@@ -68,7 +68,7 @@
           noModule: true
         };
         function DOMEval(code, node, doc) {
-          doc = doc || document;
+          doc = doc || document2;
           var i, val, script = doc.createElement("script");
           script.text = code;
           if (node) {
@@ -309,7 +309,7 @@
           return type === "array" || length === 0 || typeof length === "number" && length > 0 && length - 1 in obj;
         }
         var Sizzle = function(window3) {
-          var i, support2, Expr, getText, isXML, tokenize, compile, select, outermostContext, sortInput, hasDuplicate, setDocument, document2, docElem, documentIsHTML, rbuggyQSA, rbuggyMatches, matches, contains, expando = "sizzle" + 1 * new Date(), preferredDoc = window3.document, dirruns = 0, done = 0, classCache = createCache(), tokenCache = createCache(), compilerCache = createCache(), nonnativeSelectorCache = createCache(), sortOrder = function(a, b) {
+          var i, support2, Expr, getText, isXML, tokenize, compile, select, outermostContext, sortInput, hasDuplicate, setDocument, document3, docElem, documentIsHTML, rbuggyQSA, rbuggyMatches, matches, contains, expando = "sizzle" + 1 * new Date(), preferredDoc = window3.document, dirruns = 0, done = 0, classCache = createCache(), tokenCache = createCache(), compilerCache = createCache(), nonnativeSelectorCache = createCache(), sortOrder = function(a, b) {
             if (a === b) {
               hasDuplicate = true;
             }
@@ -376,7 +376,7 @@
             }
             if (!seed) {
               setDocument(context);
-              context = context || document2;
+              context = context || document3;
               if (documentIsHTML) {
                 if (nodeType !== 11 && (match = rquickExpr2.exec(selector))) {
                   if (m = match[1]) {
@@ -455,7 +455,7 @@
             return fn;
           }
           function assert(fn) {
-            var el = document2.createElement("fieldset");
+            var el = document3.createElement("fieldset");
             try {
               return !!fn(el);
             } catch (e) {
@@ -542,13 +542,13 @@
           };
           setDocument = Sizzle2.setDocument = function(node) {
             var hasCompare, subWindow, doc = node ? node.ownerDocument || node : preferredDoc;
-            if (doc == document2 || doc.nodeType !== 9 || !doc.documentElement) {
-              return document2;
+            if (doc == document3 || doc.nodeType !== 9 || !doc.documentElement) {
+              return document3;
             }
-            document2 = doc;
-            docElem = document2.documentElement;
-            documentIsHTML = !isXML(document2);
-            if (preferredDoc != document2 && (subWindow = document2.defaultView) && subWindow.top !== subWindow) {
+            document3 = doc;
+            docElem = document3.documentElement;
+            documentIsHTML = !isXML(document3);
+            if (preferredDoc != document3 && (subWindow = document3.defaultView) && subWindow.top !== subWindow) {
               if (subWindow.addEventListener) {
                 subWindow.addEventListener("unload", unloadHandler, false);
               } else if (subWindow.attachEvent) {
@@ -556,7 +556,7 @@
               }
             }
             support2.scope = assert(function(el) {
-              docElem.appendChild(el).appendChild(document2.createElement("div"));
+              docElem.appendChild(el).appendChild(document3.createElement("div"));
               return typeof el.querySelectorAll !== "undefined" && !el.querySelectorAll(":scope fieldset div").length;
             });
             support2.attributes = assert(function(el) {
@@ -564,13 +564,13 @@
               return !el.getAttribute("className");
             });
             support2.getElementsByTagName = assert(function(el) {
-              el.appendChild(document2.createComment(""));
+              el.appendChild(document3.createComment(""));
               return !el.getElementsByTagName("*").length;
             });
-            support2.getElementsByClassName = rnative.test(document2.getElementsByClassName);
+            support2.getElementsByClassName = rnative.test(document3.getElementsByClassName);
             support2.getById = assert(function(el) {
               docElem.appendChild(el).id = expando;
-              return !document2.getElementsByName || !document2.getElementsByName(expando).length;
+              return !document3.getElementsByName || !document3.getElementsByName(expando).length;
             });
             if (support2.getById) {
               Expr.filter["ID"] = function(id) {
@@ -639,7 +639,7 @@
             };
             rbuggyMatches = [];
             rbuggyQSA = [];
-            if (support2.qsa = rnative.test(document2.querySelectorAll)) {
+            if (support2.qsa = rnative.test(document3.querySelectorAll)) {
               assert(function(el) {
                 var input;
                 docElem.appendChild(el).innerHTML = "<a id='" + expando + "'></a><select id='" + expando + "-\r\\' msallowcapture=''><option selected=''></option></select>";
@@ -652,7 +652,7 @@
                 if (!el.querySelectorAll("[id~=" + expando + "-]").length) {
                   rbuggyQSA.push("~=");
                 }
-                input = document2.createElement("input");
+                input = document3.createElement("input");
                 input.setAttribute("name", "");
                 el.appendChild(input);
                 if (!el.querySelectorAll("[name='']").length) {
@@ -669,7 +669,7 @@
               });
               assert(function(el) {
                 el.innerHTML = "<a href='' disabled='disabled'></a><select disabled='disabled'><option/></select>";
-                var input = document2.createElement("input");
+                var input = document3.createElement("input");
                 input.setAttribute("type", "hidden");
                 el.appendChild(input).setAttribute("name", "D");
                 if (el.querySelectorAll("[name=d]").length) {
@@ -720,10 +720,10 @@
               }
               compare = (a.ownerDocument || a) == (b.ownerDocument || b) ? a.compareDocumentPosition(b) : 1;
               if (compare & 1 || !support2.sortDetached && b.compareDocumentPosition(a) === compare) {
-                if (a == document2 || a.ownerDocument == preferredDoc && contains(preferredDoc, a)) {
+                if (a == document3 || a.ownerDocument == preferredDoc && contains(preferredDoc, a)) {
                   return -1;
                 }
-                if (b == document2 || b.ownerDocument == preferredDoc && contains(preferredDoc, b)) {
+                if (b == document3 || b.ownerDocument == preferredDoc && contains(preferredDoc, b)) {
                   return 1;
                 }
                 return sortInput ? indexOf2(sortInput, a) - indexOf2(sortInput, b) : 0;
@@ -736,7 +736,7 @@
               }
               var cur, i2 = 0, aup = a.parentNode, bup = b.parentNode, ap = [a], bp = [b];
               if (!aup || !bup) {
-                return a == document2 ? -1 : b == document2 ? 1 : aup ? -1 : bup ? 1 : sortInput ? indexOf2(sortInput, a) - indexOf2(sortInput, b) : 0;
+                return a == document3 ? -1 : b == document3 ? 1 : aup ? -1 : bup ? 1 : sortInput ? indexOf2(sortInput, a) - indexOf2(sortInput, b) : 0;
               } else if (aup === bup) {
                 return siblingCheck(a, b);
               }
@@ -753,7 +753,7 @@
               }
               return i2 ? siblingCheck(ap[i2], bp[i2]) : ap[i2] == preferredDoc ? -1 : bp[i2] == preferredDoc ? 1 : 0;
             };
-            return document2;
+            return document3;
           };
           Sizzle2.matches = function(expr, elements) {
             return Sizzle2(expr, null, null, elements);
@@ -770,16 +770,16 @@
                 nonnativeSelectorCache(expr, true);
               }
             }
-            return Sizzle2(expr, document2, null, [elem]).length > 0;
+            return Sizzle2(expr, document3, null, [elem]).length > 0;
           };
           Sizzle2.contains = function(context, elem) {
-            if ((context.ownerDocument || context) != document2) {
+            if ((context.ownerDocument || context) != document3) {
               setDocument(context);
             }
             return contains(context, elem);
           };
           Sizzle2.attr = function(elem, name) {
-            if ((elem.ownerDocument || elem) != document2) {
+            if ((elem.ownerDocument || elem) != document3) {
               setDocument(elem);
             }
             var fn = Expr.attrHandle[name.toLowerCase()], val = fn && hasOwn2.call(Expr.attrHandle, name.toLowerCase()) ? fn(elem, name, !documentIsHTML) : void 0;
@@ -1044,7 +1044,7 @@
                 return elem === docElem;
               },
               "focus": function(elem) {
-                return elem === document2.activeElement && (!document2.hasFocus || document2.hasFocus()) && !!(elem.type || elem.href || ~elem.tabIndex);
+                return elem === document3.activeElement && (!document3.hasFocus || document3.hasFocus()) && !!(elem.type || elem.href || ~elem.tabIndex);
               },
               "enabled": createDisabledPseudo(false),
               "disabled": createDisabledPseudo(true),
@@ -1352,17 +1352,17 @@
             var bySet = setMatchers.length > 0, byElement = elementMatchers.length > 0, superMatcher = function(seed, context, xml, results, outermost) {
               var elem, j, matcher, matchedCount = 0, i2 = "0", unmatched = seed && [], setMatched = [], contextBackup = outermostContext, elems = seed || byElement && Expr.find["TAG"]("*", outermost), dirrunsUnique = dirruns += contextBackup == null ? 1 : Math.random() || 0.1, len = elems.length;
               if (outermost) {
-                outermostContext = context == document2 || context || outermost;
+                outermostContext = context == document3 || context || outermost;
               }
               for (; i2 !== len && (elem = elems[i2]) != null; i2++) {
                 if (byElement && elem) {
                   j = 0;
-                  if (!context && elem.ownerDocument != document2) {
+                  if (!context && elem.ownerDocument != document3) {
                     setDocument(elem);
                     xml = !documentIsHTML;
                   }
                   while (matcher = elementMatchers[j++]) {
-                    if (matcher(elem, context || document2, xml)) {
+                    if (matcher(elem, context || document3, xml)) {
                       results.push(elem);
                       break;
                     }
@@ -1481,7 +1481,7 @@
           support2.detectDuplicates = !!hasDuplicate;
           setDocument();
           support2.sortDetached = assert(function(el) {
-            return el.compareDocumentPosition(document2.createElement("fieldset")) & 1;
+            return el.compareDocumentPosition(document3.createElement("fieldset")) & 1;
           });
           if (!assert(function(el) {
             el.innerHTML = "<a href='#'></a>";
@@ -1629,7 +1629,7 @@
                 context = context instanceof jQuery2 ? context[0] : context;
                 jQuery2.merge(this, jQuery2.parseHTML(
                   match[1],
-                  context && context.nodeType ? context.ownerDocument || context : document,
+                  context && context.nodeType ? context.ownerDocument || context : document2,
                   true
                 ));
                 if (rsingleTag.test(match[1]) && jQuery2.isPlainObject(context)) {
@@ -1643,7 +1643,7 @@
                 }
                 return this;
               } else {
-                elem = document.getElementById(match[2]);
+                elem = document2.getElementById(match[2]);
                 if (elem) {
                   this[0] = elem;
                   this.length = 1;
@@ -1665,7 +1665,7 @@
           return jQuery2.makeArray(selector, this);
         };
         init.prototype = jQuery2.fn;
-        rootjQuery = jQuery2(document);
+        rootjQuery = jQuery2(document2);
         var rparentsprev = /^(?:parents|prev(?:Until|All))/, guaranteedUnique = {
           children: true,
           contents: true,
@@ -2169,19 +2169,19 @@
             if (wait !== true && --jQuery2.readyWait > 0) {
               return;
             }
-            readyList.resolveWith(document, [jQuery2]);
+            readyList.resolveWith(document2, [jQuery2]);
           }
         });
         jQuery2.ready.then = readyList.then;
         function completed() {
-          document.removeEventListener("DOMContentLoaded", completed);
+          document2.removeEventListener("DOMContentLoaded", completed);
           window2.removeEventListener("load", completed);
           jQuery2.ready();
         }
-        if (document.readyState === "complete" || document.readyState !== "loading" && !document.documentElement.doScroll) {
+        if (document2.readyState === "complete" || document2.readyState !== "loading" && !document2.documentElement.doScroll) {
           window2.setTimeout(jQuery2.ready);
         } else {
-          document.addEventListener("DOMContentLoaded", completed);
+          document2.addEventListener("DOMContentLoaded", completed);
           window2.addEventListener("load", completed);
         }
         var access = function(elems, fn, key, value, chainable, emptyGet, raw) {
@@ -2511,7 +2511,7 @@
         var pnum = /[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/.source;
         var rcssNum = new RegExp("^(?:([+-])=|)(" + pnum + ")([a-z%]*)$", "i");
         var cssExpand = ["Top", "Right", "Bottom", "Left"];
-        var documentElement = document.documentElement;
+        var documentElement = document2.documentElement;
         var isAttached = function(elem) {
           return jQuery2.contains(elem.ownerDocument, elem);
         }, composed = { composed: true };
@@ -2627,7 +2627,7 @@
         var rtagName = /<([a-z][^\/\0>\x20\t\r\n\f]*)/i;
         var rscriptType = /^$|^module$|\/(?:java|ecma)script/i;
         (function() {
-          var fragment = document.createDocumentFragment(), div = fragment.appendChild(document.createElement("div")), input = document.createElement("input");
+          var fragment = document2.createDocumentFragment(), div = fragment.appendChild(document2.createElement("div")), input = document2.createElement("input");
           input.setAttribute("type", "radio");
           input.setAttribute("checked", "checked");
           input.setAttribute("name", "t");
@@ -2736,7 +2736,7 @@
         }
         function safeActiveElement() {
           try {
-            return document.activeElement;
+            return document2.activeElement;
           } catch (err) {
           }
         }
@@ -3556,7 +3556,7 @@
           function roundPixelMeasures(measure) {
             return Math.round(parseFloat(measure));
           }
-          var pixelPositionVal, boxSizingReliableVal, scrollboxSizeVal, pixelBoxStylesVal, reliableTrDimensionsVal, reliableMarginLeftVal, container = document.createElement("div"), div = document.createElement("div");
+          var pixelPositionVal, boxSizingReliableVal, scrollboxSizeVal, pixelBoxStylesVal, reliableTrDimensionsVal, reliableMarginLeftVal, container = document2.createElement("div"), div = document2.createElement("div");
           if (!div.style) {
             return;
           }
@@ -3587,9 +3587,9 @@
             reliableTrDimensions: function() {
               var table, tr, trChild, trStyle;
               if (reliableTrDimensionsVal == null) {
-                table = document.createElement("table");
-                tr = document.createElement("tr");
-                trChild = document.createElement("div");
+                table = document2.createElement("table");
+                tr = document2.createElement("tr");
+                trChild = document2.createElement("div");
                 table.style.cssText = "position:absolute;left:-11111px;border-collapse:separate";
                 tr.style.cssText = "border:1px solid";
                 tr.style.height = "1px";
@@ -3636,7 +3636,7 @@
             }
           };
         }
-        var cssPrefixes = ["Webkit", "Moz", "ms"], emptyStyle = document.createElement("div").style, vendorProps = {};
+        var cssPrefixes = ["Webkit", "Moz", "ms"], emptyStyle = document2.createElement("div").style, vendorProps = {};
         function vendorPropName(name) {
           var capName = name[0].toUpperCase() + name.slice(1), i = cssPrefixes.length;
           while (i--) {
@@ -3976,7 +3976,7 @@
         var fxNow, inProgress, rfxtypes = /^(?:toggle|show|hide)$/, rrun = /queueHooks$/;
         function schedule() {
           if (inProgress) {
-            if (document.hidden === false && window2.requestAnimationFrame) {
+            if (document2.hidden === false && window2.requestAnimationFrame) {
               window2.requestAnimationFrame(schedule);
             } else {
               window2.setTimeout(schedule, jQuery2.fx.interval);
@@ -4447,11 +4447,11 @@
           });
         };
         (function() {
-          var input = document.createElement("input"), select = document.createElement("select"), opt = select.appendChild(document.createElement("option"));
+          var input = document2.createElement("input"), select = document2.createElement("select"), opt = select.appendChild(document2.createElement("option"));
           input.type = "checkbox";
           support.checkOn = input.value !== "";
           support.optSelected = opt.selected;
-          input = document.createElement("input");
+          input = document2.createElement("input");
           input.value = "t";
           input.type = "radio";
           support.radioValue = input.value === "t";
@@ -4863,8 +4863,8 @@
         };
         jQuery2.extend(jQuery2.event, {
           trigger: function(event, data, elem, onlyHandlers) {
-            var i, cur, tmp, bubbleType, ontype, handle, special, lastElement, eventPath = [elem || document], type = hasOwn.call(event, "type") ? event.type : event, namespaces = hasOwn.call(event, "namespace") ? event.namespace.split(".") : [];
-            cur = lastElement = tmp = elem = elem || document;
+            var i, cur, tmp, bubbleType, ontype, handle, special, lastElement, eventPath = [elem || document2], type = hasOwn.call(event, "type") ? event.type : event, namespaces = hasOwn.call(event, "namespace") ? event.namespace.split(".") : [];
+            cur = lastElement = tmp = elem = elem || document2;
             if (elem.nodeType === 3 || elem.nodeType === 8) {
               return;
             }
@@ -4899,7 +4899,7 @@
                 eventPath.push(cur);
                 tmp = cur;
               }
-              if (tmp === (elem.ownerDocument || document)) {
+              if (tmp === (elem.ownerDocument || document2)) {
                 eventPath.push(tmp.defaultView || tmp.parentWindow || window2);
               }
             }
@@ -5082,7 +5082,7 @@
             }).get();
           }
         });
-        var r20 = /%20/g, rhash = /#.*$/, rantiCache = /([?&])_=[^&]*/, rheaders = /^(.*?):[ \t]*([^\r\n]*)$/mg, rlocalProtocol = /^(?:about|app|app-storage|.+-extension|file|res|widget):$/, rnoContent = /^(?:GET|HEAD)$/, rprotocol = /^\/\//, prefilters = {}, transports = {}, allTypes = "*/".concat("*"), originAnchor = document.createElement("a");
+        var r20 = /%20/g, rhash = /#.*$/, rantiCache = /([?&])_=[^&]*/, rheaders = /^(.*?):[ \t]*([^\r\n]*)$/mg, rlocalProtocol = /^(?:about|app|app-storage|.+-extension|file|res|widget):$/, rnoContent = /^(?:GET|HEAD)$/, rprotocol = /^\/\//, prefilters = {}, transports = {}, allTypes = "*/".concat("*"), originAnchor = document2.createElement("a");
         originAnchor.href = location.href;
         function addToPrefiltersOrTransports(structure) {
           return function(dataTypeExpression, func) {
@@ -5338,7 +5338,7 @@
             s.type = options.method || options.type || s.method || s.type;
             s.dataTypes = (s.dataType || "*").toLowerCase().match(rnothtmlwhite) || [""];
             if (s.crossDomain == null) {
-              urlAnchor = document.createElement("a");
+              urlAnchor = document2.createElement("a");
               try {
                 urlAnchor.href = s.url;
                 urlAnchor.href = urlAnchor.href;
@@ -5741,7 +5741,7 @@
                     complete(evt.type === "error" ? 404 : 200, evt.type);
                   }
                 });
-                document.head.appendChild(script[0]);
+                document2.head.appendChild(script[0]);
               },
               abort: function() {
                 if (callback) {
@@ -5799,7 +5799,7 @@
           }
         });
         support.createHTMLDocument = function() {
-          var body = document.implementation.createHTMLDocument("").body;
+          var body = document2.implementation.createHTMLDocument("").body;
           body.innerHTML = "<form></form><form></form>";
           return body.childNodes.length === 2;
         }();
@@ -5814,12 +5814,12 @@
           var base, parsed, scripts;
           if (!context) {
             if (support.createHTMLDocument) {
-              context = document.implementation.createHTMLDocument("");
+              context = document2.implementation.createHTMLDocument("");
               base = context.createElement("base");
-              base.href = document.location.href;
+              base.href = document2.location.href;
               context.head.appendChild(base);
             } else {
-              context = document;
+              context = document2;
             }
           }
           parsed = rsingleTag.exec(data);
@@ -6126,7 +6126,6 @@
     constructor() {
       this.button = (0, import_jquery.default)(".burger");
       this.menu = (0, import_jquery.default)("header nav");
-      this.registerEvents();
     }
     registerEvents() {
       this.button.click(this.toggleAction.bind(this));
@@ -6137,8 +6136,33 @@
     }
   };
 
+  // src/js/mods/ScrollObserver.js
+  var ScrollObserver = class {
+    constructor(elements, rm) {
+      this.observales = elements;
+      this.rmargin = rm + "px";
+      this.obs = new IntersectionObserver((sects) => {
+        sects.forEach((item) => {
+          item.target.classList.toggle("reveal", item.isIntersecting);
+          if (item.isIntersecting)
+            this.obs.unobserve(item.target);
+        });
+      }, {
+        threshold: 0.3,
+        rootMargin: this.rmargin
+      });
+    }
+    observe() {
+      this.observales.forEach((feat) => this.obs.observe(feat));
+    }
+  };
+
   // src/js/main.js
-  burgerButton = new Burger();
+  new Burger().registerEvents();
+  var features = document.querySelectorAll(".sub");
+  new ScrollObserver(features, 120).observe();
+  var testimonials = document.querySelectorAll(".subs");
+  new ScrollObserver(testimonials, 10).observe();
 })();
 /*!
  * jQuery JavaScript Library v3.6.0
