@@ -6125,13 +6125,15 @@
   var Burger = class {
     constructor() {
       this.button = (0, import_jquery.default)(".burger");
-      this.registerEvents;
+      this.menu = (0, import_jquery.default)("header nav");
+      this.registerEvents();
     }
     registerEvents() {
-      this.button.click(this.toggleAction);
+      this.button.click(this.toggleAction.bind(this));
     }
     toggleAction() {
-      alert("This button was clicked!");
+      this.menu.toggleClass("header_nav-btn-toggle");
+      this.button.toggleClass("burger-close");
     }
   };
 

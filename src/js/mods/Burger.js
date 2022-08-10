@@ -4,14 +4,16 @@ export default class Burger {
 
     constructor(){
         this.button = jQuery(".burger");
-        this.registerEvents;
+        this.menu = jQuery("header nav");
+        this.registerEvents();
     }
 
     registerEvents(){
-        this.button.click(this.toggleAction);
+        this.button.click(this.toggleAction.bind(this));
     }
 
     toggleAction(){
-        alert("This button was clicked!");
+        this.menu.toggleClass("header_nav-btn-toggle");
+        this.button.toggleClass("burger-close");
     }
-}
+};
