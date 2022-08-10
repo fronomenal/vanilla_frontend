@@ -58,7 +58,7 @@ header {
 
     }
 
-    @include scScmall{
+    @include scMedium{
 
         .banner{
             left: auto;
@@ -70,7 +70,7 @@ header {
         }
 
         nav {
-            opacity: 1;
+            visibility: visible;
             transform: translateY(0);
         }
     }
