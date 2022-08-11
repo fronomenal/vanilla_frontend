@@ -65,6 +65,10 @@ header {
             text-decoration: none;
             color: hsl(0, 0%, 75%);
         }
+
+        a.active{
+            color: $tertiary-color;
+        }
         
         li a {
             display: block;
@@ -91,7 +95,10 @@ header {
         padding-top: 81px;
     }
 
+
     @include scMedium{
+
+        position: fixed;
 
         .banner{
             left: auto;
@@ -131,6 +138,19 @@ header {
             content: "";
             display: block;
             clear: both;
+        }
+    }
+}
+
+@include scMedium{
+    header.fixed-style{
+        background-color: darken(rgba($primary-color, 0.9), 3);
+
+        & .banner{
+            background-color: darken(rgba($primary-color, 0.9), 3);
+            width: 115px;
+            transition-duration: .3s;
+            transition-timing-function: ease-out;
         }
     }
 }

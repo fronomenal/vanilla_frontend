@@ -3,6 +3,10 @@ export default class ScrollObserver{
         this.observales = elements;
         this.rmargin = rm + "px";
         
+    }
+
+    observe(){
+
         this.obs = new IntersectionObserver( sects => {
             sects.forEach( item => {
                 item.target.classList.toggle("reveal", item.isIntersecting);
@@ -12,9 +16,7 @@ export default class ScrollObserver{
             threshold: 0.3,
             rootMargin: this.rmargin
         })
-    }
 
-    observe(){
         this.observales.forEach( feat => this.obs.observe(feat));
     }
 };
