@@ -80,5 +80,5 @@ export default gulp.series(
   //jsmin,
   //optimizeimg,
   //webpImage,
-  watchTask
+  //watchTask
 );
