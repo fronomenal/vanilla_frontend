@@ -1,6 +1,7 @@
 import Burger from "./mods/Burger";
 import Observer from "./mods/ScrollObserver";
 import FixHeader from "./mods/FixHeader";
+import ContactModal from "./mods/ContactModal";
 
 new Burger().registerEvents();
 
@@ -11,3 +12,5 @@ const testimonials = document.querySelectorAll(".subs")
 new Observer(testimonials, 10).observe();
 
 new FixHeader().init();
+
+new ContactModal().registerEvents();

@@ -1,4 +1,4 @@
-//Buttons
+//Buttons/imgs
 
 .btn {
     @include btn($primary-color);
@@ -6,6 +6,18 @@
 
 .btn-orange {
     @include btn($tertiary-color);
+}
+
+.social-icons{
+    text-align: center;
+
+    .si{
+        display: inline-block;
+        padding: 9px;
+        margin-inline: 3px;
+        background-color: $tertiary-color;
+    }
+
 }
 
 

@@ -87,12 +87,12 @@
           }
           return typeof obj === "object" || typeof obj === "function" ? class2type[toString.call(obj)] || "object" : typeof obj;
         }
-        var version = "3.6.0", jQuery2 = function(selector, context) {
-          return new jQuery2.fn.init(selector, context);
+        var version = "3.6.0", jQuery3 = function(selector, context) {
+          return new jQuery3.fn.init(selector, context);
         };
-        jQuery2.fn = jQuery2.prototype = {
+        jQuery3.fn = jQuery3.prototype = {
           jquery: version,
-          constructor: jQuery2,
+          constructor: jQuery3,
           length: 0,
           toArray: function() {
             return slice.call(this);
@@ -104,15 +104,15 @@
             return num < 0 ? this[num + this.length] : this[num];
           },
           pushStack: function(elems) {
-            var ret = jQuery2.merge(this.constructor(), elems);
+            var ret = jQuery3.merge(this.constructor(), elems);
             ret.prevObject = this;
             return ret;
           },
           each: function(callback) {
-            return jQuery2.each(this, callback);
+            return jQuery3.each(this, callback);
           },
           map: function(callback) {
-            return this.pushStack(jQuery2.map(this, function(elem, i) {
+            return this.pushStack(jQuery3.map(this, function(elem, i) {
               return callback.call(elem, i, elem);
             }));
           },
@@ -126,12 +126,12 @@
             return this.eq(-1);
           },
           even: function() {
-            return this.pushStack(jQuery2.grep(this, function(_elem, i) {
+            return this.pushStack(jQuery3.grep(this, function(_elem, i) {
               return (i + 1) % 2;
             }));
           },
           odd: function() {
-            return this.pushStack(jQuery2.grep(this, function(_elem, i) {
+            return this.pushStack(jQuery3.grep(this, function(_elem, i) {
               return i % 2;
             }));
           },
@@ -146,7 +146,7 @@
           sort: arr.sort,
           splice: arr.splice
         };
-        jQuery2.extend = jQuery2.fn.extend = function() {
+        jQuery3.extend = jQuery3.fn.extend = function() {
           var options, name, src, copy, copyIsArray, clone, target = arguments[0] || {}, i = 1, length = arguments.length, deep = false;
           if (typeof target === "boolean") {
             deep = target;
@@ -167,17 +167,17 @@
                 if (name === "__proto__" || target === copy) {
                   continue;
                 }
-                if (deep && copy && (jQuery2.isPlainObject(copy) || (copyIsArray = Array.isArray(copy)))) {
+                if (deep && copy && (jQuery3.isPlainObject(copy) || (copyIsArray = Array.isArray(copy)))) {
                   src = target[name];
                   if (copyIsArray && !Array.isArray(src)) {
                     clone = [];
-                  } else if (!copyIsArray && !jQuery2.isPlainObject(src)) {
+                  } else if (!copyIsArray && !jQuery3.isPlainObject(src)) {
                     clone = {};
                   } else {
                     clone = src;
                   }
                   copyIsArray = false;
-                  target[name] = jQuery2.extend(deep, clone, copy);
+                  target[name] = jQuery3.extend(deep, clone, copy);
                 } else if (copy !== void 0) {
                   target[name] = copy;
                 }
@@ -186,7 +186,7 @@
           }
           return target;
         };
-        jQuery2.extend({
+        jQuery3.extend({
           expando: "jQuery" + (version + Math.random()).replace(/\D/g, ""),
           isReady: true,
           error: function(msg) {
@@ -238,7 +238,7 @@
             var ret = results || [];
             if (arr2 != null) {
               if (isArrayLike(Object(arr2))) {
-                jQuery2.merge(
+                jQuery3.merge(
                   ret,
                   typeof arr2 === "string" ? [arr2] : arr2
                 );
@@ -293,9 +293,9 @@
           support
         });
         if (typeof Symbol === "function") {
-          jQuery2.fn[Symbol.iterator] = arr[Symbol.iterator];
+          jQuery3.fn[Symbol.iterator] = arr[Symbol.iterator];
         }
-        jQuery2.each(
+        jQuery3.each(
           "Boolean Number String Function Array Date RegExp Object Error Symbol".split(" "),
           function(_i, name) {
             class2type["[object " + name + "]"] = name.toLowerCase();
@@ -1516,19 +1516,19 @@
           }
           return Sizzle2;
         }(window2);
-        jQuery2.find = Sizzle;
-        jQuery2.expr = Sizzle.selectors;
-        jQuery2.expr[":"] = jQuery2.expr.pseudos;
-        jQuery2.uniqueSort = jQuery2.unique = Sizzle.uniqueSort;
-        jQuery2.text = Sizzle.getText;
-        jQuery2.isXMLDoc = Sizzle.isXML;
-        jQuery2.contains = Sizzle.contains;
-        jQuery2.escapeSelector = Sizzle.escape;
+        jQuery3.find = Sizzle;
+        jQuery3.expr = Sizzle.selectors;
+        jQuery3.expr[":"] = jQuery3.expr.pseudos;
+        jQuery3.uniqueSort = jQuery3.unique = Sizzle.uniqueSort;
+        jQuery3.text = Sizzle.getText;
+        jQuery3.isXMLDoc = Sizzle.isXML;
+        jQuery3.contains = Sizzle.contains;
+        jQuery3.escapeSelector = Sizzle.escape;
         var dir = function(elem, dir2, until) {
           var matched = [], truncate = until !== void 0;
           while ((elem = elem[dir2]) && elem.nodeType !== 9) {
             if (elem.nodeType === 1) {
-              if (truncate && jQuery2(elem).is(until)) {
+              if (truncate && jQuery3(elem).is(until)) {
                 break;
               }
               matched.push(elem);
@@ -1545,48 +1545,48 @@
           }
           return matched;
         };
-        var rneedsContext = jQuery2.expr.match.needsContext;
+        var rneedsContext = jQuery3.expr.match.needsContext;
         function nodeName(elem, name) {
           return elem.nodeName && elem.nodeName.toLowerCase() === name.toLowerCase();
         }
         var rsingleTag = /^<([a-z][^\/\0>:\x20\t\r\n\f]*)[\x20\t\r\n\f]*\/?>(?:<\/\1>|)$/i;
         function winnow(elements, qualifier, not) {
           if (isFunction(qualifier)) {
-            return jQuery2.grep(elements, function(elem, i) {
+            return jQuery3.grep(elements, function(elem, i) {
               return !!qualifier.call(elem, i, elem) !== not;
             });
           }
           if (qualifier.nodeType) {
-            return jQuery2.grep(elements, function(elem) {
+            return jQuery3.grep(elements, function(elem) {
               return elem === qualifier !== not;
             });
           }
           if (typeof qualifier !== "string") {
-            return jQuery2.grep(elements, function(elem) {
+            return jQuery3.grep(elements, function(elem) {
               return indexOf.call(qualifier, elem) > -1 !== not;
             });
           }
-          return jQuery2.filter(qualifier, elements, not);
+          return jQuery3.filter(qualifier, elements, not);
         }
-        jQuery2.filter = function(expr, elems, not) {
+        jQuery3.filter = function(expr, elems, not) {
           var elem = elems[0];
           if (not) {
             expr = ":not(" + expr + ")";
           }
           if (elems.length === 1 && elem.nodeType === 1) {
-            return jQuery2.find.matchesSelector(elem, expr) ? [elem] : [];
+            return jQuery3.find.matchesSelector(elem, expr) ? [elem] : [];
           }
-          return jQuery2.find.matches(expr, jQuery2.grep(elems, function(elem2) {
+          return jQuery3.find.matches(expr, jQuery3.grep(elems, function(elem2) {
             return elem2.nodeType === 1;
           }));
         };
-        jQuery2.fn.extend({
+        jQuery3.fn.extend({
           find: function(selector) {
             var i, ret, len = this.length, self = this;
             if (typeof selector !== "string") {
-              return this.pushStack(jQuery2(selector).filter(function() {
+              return this.pushStack(jQuery3(selector).filter(function() {
                 for (i = 0; i < len; i++) {
-                  if (jQuery2.contains(self[i], this)) {
+                  if (jQuery3.contains(self[i], this)) {
                     return true;
                   }
                 }
@@ -1594,9 +1594,9 @@
             }
             ret = this.pushStack([]);
             for (i = 0; i < len; i++) {
-              jQuery2.find(selector, self[i], ret);
+              jQuery3.find(selector, self[i], ret);
             }
-            return len > 1 ? jQuery2.uniqueSort(ret) : ret;
+            return len > 1 ? jQuery3.uniqueSort(ret) : ret;
           },
           filter: function(selector) {
             return this.pushStack(winnow(this, selector || [], false));
@@ -1607,12 +1607,12 @@
           is: function(selector) {
             return !!winnow(
               this,
-              typeof selector === "string" && rneedsContext.test(selector) ? jQuery2(selector) : selector || [],
+              typeof selector === "string" && rneedsContext.test(selector) ? jQuery3(selector) : selector || [],
               false
             ).length;
           }
         });
-        var rootjQuery, rquickExpr = /^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]+))$/, init = jQuery2.fn.init = function(selector, context, root) {
+        var rootjQuery, rquickExpr = /^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]+))$/, init = jQuery3.fn.init = function(selector, context, root) {
           var match, elem;
           if (!selector) {
             return this;
@@ -1626,13 +1626,13 @@
             }
             if (match && (match[1] || !context)) {
               if (match[1]) {
-                context = context instanceof jQuery2 ? context[0] : context;
-                jQuery2.merge(this, jQuery2.parseHTML(
+                context = context instanceof jQuery3 ? context[0] : context;
+                jQuery3.merge(this, jQuery3.parseHTML(
                   match[1],
                   context && context.nodeType ? context.ownerDocument || context : document2,
                   true
                 ));
-                if (rsingleTag.test(match[1]) && jQuery2.isPlainObject(context)) {
+                if (rsingleTag.test(match[1]) && jQuery3.isPlainObject(context)) {
                   for (match in context) {
                     if (isFunction(this[match])) {
                       this[match](context[match]);
@@ -1660,50 +1660,50 @@
             this.length = 1;
             return this;
           } else if (isFunction(selector)) {
-            return root.ready !== void 0 ? root.ready(selector) : selector(jQuery2);
+            return root.ready !== void 0 ? root.ready(selector) : selector(jQuery3);
           }
-          return jQuery2.makeArray(selector, this);
+          return jQuery3.makeArray(selector, this);
         };
-        init.prototype = jQuery2.fn;
-        rootjQuery = jQuery2(document2);
+        init.prototype = jQuery3.fn;
+        rootjQuery = jQuery3(document2);
         var rparentsprev = /^(?:parents|prev(?:Until|All))/, guaranteedUnique = {
           children: true,
           contents: true,
           next: true,
           prev: true
         };
-        jQuery2.fn.extend({
+        jQuery3.fn.extend({
           has: function(target) {
-            var targets = jQuery2(target, this), l = targets.length;
+            var targets = jQuery3(target, this), l = targets.length;
             return this.filter(function() {
               var i = 0;
               for (; i < l; i++) {
-                if (jQuery2.contains(this, targets[i])) {
+                if (jQuery3.contains(this, targets[i])) {
                   return true;
                 }
               }
             });
           },
           closest: function(selectors, context) {
-            var cur, i = 0, l = this.length, matched = [], targets = typeof selectors !== "string" && jQuery2(selectors);
+            var cur, i = 0, l = this.length, matched = [], targets = typeof selectors !== "string" && jQuery3(selectors);
             if (!rneedsContext.test(selectors)) {
               for (; i < l; i++) {
                 for (cur = this[i]; cur && cur !== context; cur = cur.parentNode) {
-                  if (cur.nodeType < 11 && (targets ? targets.index(cur) > -1 : cur.nodeType === 1 && jQuery2.find.matchesSelector(cur, selectors))) {
+                  if (cur.nodeType < 11 && (targets ? targets.index(cur) > -1 : cur.nodeType === 1 && jQuery3.find.matchesSelector(cur, selectors))) {
                     matched.push(cur);
                     break;
                   }
                 }
               }
             }
-            return this.pushStack(matched.length > 1 ? jQuery2.uniqueSort(matched) : matched);
+            return this.pushStack(matched.length > 1 ? jQuery3.uniqueSort(matched) : matched);
           },
           index: function(elem) {
             if (!elem) {
               return this[0] && this[0].parentNode ? this.first().prevAll().length : -1;
             }
             if (typeof elem === "string") {
-              return indexOf.call(jQuery2(elem), this[0]);
+              return indexOf.call(jQuery3(elem), this[0]);
             }
             return indexOf.call(
               this,
@@ -1712,8 +1712,8 @@
           },
           add: function(selector, context) {
             return this.pushStack(
-              jQuery2.uniqueSort(
-                jQuery2.merge(this.get(), jQuery2(selector, context))
+              jQuery3.uniqueSort(
+                jQuery3.merge(this.get(), jQuery3(selector, context))
               )
             );
           },
@@ -1728,7 +1728,7 @@
           }
           return cur;
         }
-        jQuery2.each({
+        jQuery3.each({
           parent: function(elem) {
             var parent = elem.parentNode;
             return parent && parent.nodeType !== 11 ? parent : null;
@@ -1770,20 +1770,20 @@
             if (nodeName(elem, "template")) {
               elem = elem.content || elem;
             }
-            return jQuery2.merge([], elem.childNodes);
+            return jQuery3.merge([], elem.childNodes);
           }
         }, function(name, fn) {
-          jQuery2.fn[name] = function(until, selector) {
-            var matched = jQuery2.map(this, fn, until);
+          jQuery3.fn[name] = function(until, selector) {
+            var matched = jQuery3.map(this, fn, until);
             if (name.slice(-5) !== "Until") {
               selector = until;
             }
             if (selector && typeof selector === "string") {
-              matched = jQuery2.filter(selector, matched);
+              matched = jQuery3.filter(selector, matched);
             }
             if (this.length > 1) {
               if (!guaranteedUnique[name]) {
-                jQuery2.uniqueSort(matched);
+                jQuery3.uniqueSort(matched);
               }
               if (rparentsprev.test(name)) {
                 matched.reverse();
@@ -1795,13 +1795,13 @@
         var rnothtmlwhite = /[^\x20\t\r\n\f]+/g;
         function createOptions(options) {
           var object = {};
-          jQuery2.each(options.match(rnothtmlwhite) || [], function(_, flag) {
+          jQuery3.each(options.match(rnothtmlwhite) || [], function(_, flag) {
             object[flag] = true;
           });
           return object;
         }
-        jQuery2.Callbacks = function(options) {
-          options = typeof options === "string" ? createOptions(options) : jQuery2.extend({}, options);
+        jQuery3.Callbacks = function(options) {
+          options = typeof options === "string" ? createOptions(options) : jQuery3.extend({}, options);
           var firing, memory, fired, locked, list = [], queue = [], firingIndex = -1, fire = function() {
             locked = locked || options.once;
             fired = firing = true;
@@ -1833,7 +1833,7 @@
                   queue.push(memory);
                 }
                 (function add(args) {
-                  jQuery2.each(args, function(_, arg) {
+                  jQuery3.each(args, function(_, arg) {
                     if (isFunction(arg)) {
                       if (!options.unique || !self.has(arg)) {
                         list.push(arg);
@@ -1850,9 +1850,9 @@
               return this;
             },
             remove: function() {
-              jQuery2.each(arguments, function(_, arg) {
+              jQuery3.each(arguments, function(_, arg) {
                 var index;
-                while ((index = jQuery2.inArray(arg, list, index)) > -1) {
+                while ((index = jQuery3.inArray(arg, list, index)) > -1) {
                   list.splice(index, 1);
                   if (index <= firingIndex) {
                     firingIndex--;
@@ -1862,7 +1862,7 @@
               return this;
             },
             has: function(fn) {
-              return fn ? jQuery2.inArray(fn, list) > -1 : list.length > 0;
+              return fn ? jQuery3.inArray(fn, list) > -1 : list.length > 0;
             },
             empty: function() {
               if (list) {
@@ -1929,29 +1929,29 @@
             reject.apply(void 0, [value2]);
           }
         }
-        jQuery2.extend({
+        jQuery3.extend({
           Deferred: function(func) {
             var tuples = [
               [
                 "notify",
                 "progress",
-                jQuery2.Callbacks("memory"),
-                jQuery2.Callbacks("memory"),
+                jQuery3.Callbacks("memory"),
+                jQuery3.Callbacks("memory"),
                 2
               ],
               [
                 "resolve",
                 "done",
-                jQuery2.Callbacks("once memory"),
-                jQuery2.Callbacks("once memory"),
+                jQuery3.Callbacks("once memory"),
+                jQuery3.Callbacks("once memory"),
                 0,
                 "resolved"
               ],
               [
                 "reject",
                 "fail",
-                jQuery2.Callbacks("once memory"),
-                jQuery2.Callbacks("once memory"),
+                jQuery3.Callbacks("once memory"),
+                jQuery3.Callbacks("once memory"),
                 1,
                 "rejected"
               ]
@@ -1968,8 +1968,8 @@
               },
               pipe: function() {
                 var fns = arguments;
-                return jQuery2.Deferred(function(newDefer) {
-                  jQuery2.each(tuples, function(_i, tuple) {
+                return jQuery3.Deferred(function(newDefer) {
+                  jQuery3.each(tuples, function(_i, tuple) {
                     var fn = isFunction(fns[tuple[4]]) && fns[tuple[4]];
                     deferred[tuple[1]](function() {
                       var returned = fn && fn.apply(this, arguments);
@@ -2032,8 +2032,8 @@
                       try {
                         mightThrow();
                       } catch (e) {
-                        if (jQuery2.Deferred.exceptionHook) {
-                          jQuery2.Deferred.exceptionHook(
+                        if (jQuery3.Deferred.exceptionHook) {
+                          jQuery3.Deferred.exceptionHook(
                             e,
                             process.stackTrace
                           );
@@ -2050,14 +2050,14 @@
                     if (depth) {
                       process();
                     } else {
-                      if (jQuery2.Deferred.getStackHook) {
-                        process.stackTrace = jQuery2.Deferred.getStackHook();
+                      if (jQuery3.Deferred.getStackHook) {
+                        process.stackTrace = jQuery3.Deferred.getStackHook();
                       }
                       window2.setTimeout(process);
                     }
                   };
                 }
-                return jQuery2.Deferred(function(newDefer) {
+                return jQuery3.Deferred(function(newDefer) {
                   tuples[0][3].add(
                     resolve(
                       0,
@@ -2083,10 +2083,10 @@
                 }).promise();
               },
               promise: function(obj) {
-                return obj != null ? jQuery2.extend(obj, promise) : promise;
+                return obj != null ? jQuery3.extend(obj, promise) : promise;
               }
             }, deferred = {};
-            jQuery2.each(tuples, function(i, tuple) {
+            jQuery3.each(tuples, function(i, tuple) {
               var list = tuple[2], stateString = tuple[5];
               promise[tuple[1]] = list.add;
               if (stateString) {
@@ -2114,7 +2114,7 @@
             return deferred;
           },
           when: function(singleValue) {
-            var remaining = arguments.length, i = remaining, resolveContexts = Array(i), resolveValues = slice.call(arguments), primary = jQuery2.Deferred(), updateFunc = function(i2) {
+            var remaining = arguments.length, i = remaining, resolveContexts = Array(i), resolveValues = slice.call(arguments), primary = jQuery3.Deferred(), updateFunc = function(i2) {
               return function(value) {
                 resolveContexts[i2] = this;
                 resolveValues[i2] = arguments.length > 1 ? slice.call(arguments) : value;
@@ -2141,45 +2141,45 @@
           }
         });
         var rerrorNames = /^(Eval|Internal|Range|Reference|Syntax|Type|URI)Error$/;
-        jQuery2.Deferred.exceptionHook = function(error, stack) {
+        jQuery3.Deferred.exceptionHook = function(error, stack) {
           if (window2.console && window2.console.warn && error && rerrorNames.test(error.name)) {
             window2.console.warn("jQuery.Deferred exception: " + error.message, error.stack, stack);
           }
         };
-        jQuery2.readyException = function(error) {
+        jQuery3.readyException = function(error) {
           window2.setTimeout(function() {
             throw error;
           });
         };
-        var readyList = jQuery2.Deferred();
-        jQuery2.fn.ready = function(fn) {
+        var readyList = jQuery3.Deferred();
+        jQuery3.fn.ready = function(fn) {
           readyList.then(fn).catch(function(error) {
-            jQuery2.readyException(error);
+            jQuery3.readyException(error);
           });
           return this;
         };
-        jQuery2.extend({
+        jQuery3.extend({
           isReady: false,
           readyWait: 1,
           ready: function(wait) {
-            if (wait === true ? --jQuery2.readyWait : jQuery2.isReady) {
+            if (wait === true ? --jQuery3.readyWait : jQuery3.isReady) {
               return;
             }
-            jQuery2.isReady = true;
-            if (wait !== true && --jQuery2.readyWait > 0) {
+            jQuery3.isReady = true;
+            if (wait !== true && --jQuery3.readyWait > 0) {
               return;
             }
-            readyList.resolveWith(document2, [jQuery2]);
+            readyList.resolveWith(document2, [jQuery3]);
           }
         });
-        jQuery2.ready.then = readyList.then;
+        jQuery3.ready.then = readyList.then;
         function completed() {
           document2.removeEventListener("DOMContentLoaded", completed);
           window2.removeEventListener("load", completed);
-          jQuery2.ready();
+          jQuery3.ready();
         }
         if (document2.readyState === "complete" || document2.readyState !== "loading" && !document2.documentElement.doScroll) {
-          window2.setTimeout(jQuery2.ready);
+          window2.setTimeout(jQuery3.ready);
         } else {
           document2.addEventListener("DOMContentLoaded", completed);
           window2.addEventListener("load", completed);
@@ -2203,7 +2203,7 @@
               } else {
                 bulk = fn;
                 fn = function(elem, _key, value2) {
-                  return bulk.call(jQuery2(elem), value2);
+                  return bulk.call(jQuery3(elem), value2);
                 };
               }
             }
@@ -2236,7 +2236,7 @@
           return owner.nodeType === 1 || owner.nodeType === 9 || !+owner.nodeType;
         };
         function Data() {
-          this.expando = jQuery2.expando + Data.uid++;
+          this.expando = jQuery3.expando + Data.uid++;
         }
         Data.uid = 1;
         Data.prototype = {
@@ -2295,7 +2295,7 @@
                 delete cache[key[i]];
               }
             }
-            if (key === void 0 || jQuery2.isEmptyObject(cache)) {
+            if (key === void 0 || jQuery3.isEmptyObject(cache)) {
               if (owner.nodeType) {
                 owner[this.expando] = void 0;
               } else {
@@ -2305,7 +2305,7 @@
           },
           hasData: function(owner) {
             var cache = owner[this.expando];
-            return cache !== void 0 && !jQuery2.isEmptyObject(cache);
+            return cache !== void 0 && !jQuery3.isEmptyObject(cache);
           }
         };
         var dataPriv = new Data();
@@ -2346,7 +2346,7 @@
           }
           return data;
         }
-        jQuery2.extend({
+        jQuery3.extend({
           hasData: function(elem) {
             return dataUser.hasData(elem) || dataPriv.hasData(elem);
           },
@@ -2363,7 +2363,7 @@
             dataPriv.remove(elem, name);
           }
         });
-        jQuery2.fn.extend({
+        jQuery3.fn.extend({
           data: function(key, value) {
             var i, name, data, elem = this[0], attrs = elem && elem.attributes;
             if (key === void 0) {
@@ -2414,7 +2414,7 @@
             });
           }
         });
-        jQuery2.extend({
+        jQuery3.extend({
           queue: function(elem, type, data) {
             var queue;
             if (elem) {
@@ -2422,7 +2422,7 @@
               queue = dataPriv.get(elem, type);
               if (data) {
                 if (!queue || Array.isArray(data)) {
-                  queue = dataPriv.access(elem, type, jQuery2.makeArray(data));
+                  queue = dataPriv.access(elem, type, jQuery3.makeArray(data));
                 } else {
                   queue.push(data);
                 }
@@ -2432,8 +2432,8 @@
           },
           dequeue: function(elem, type) {
             type = type || "fx";
-            var queue = jQuery2.queue(elem, type), startLength = queue.length, fn = queue.shift(), hooks = jQuery2._queueHooks(elem, type), next = function() {
-              jQuery2.dequeue(elem, type);
+            var queue = jQuery3.queue(elem, type), startLength = queue.length, fn = queue.shift(), hooks = jQuery3._queueHooks(elem, type), next = function() {
+              jQuery3.dequeue(elem, type);
             };
             if (fn === "inprogress") {
               fn = queue.shift();
@@ -2453,13 +2453,13 @@
           _queueHooks: function(elem, type) {
             var key = type + "queueHooks";
             return dataPriv.get(elem, key) || dataPriv.access(elem, key, {
-              empty: jQuery2.Callbacks("once memory").add(function() {
+              empty: jQuery3.Callbacks("once memory").add(function() {
                 dataPriv.remove(elem, [type + "queue", key]);
               })
             });
           }
         });
-        jQuery2.fn.extend({
+        jQuery3.fn.extend({
           queue: function(type, data) {
             var setter = 2;
             if (typeof type !== "string") {
@@ -2468,26 +2468,26 @@
               setter--;
             }
             if (arguments.length < setter) {
-              return jQuery2.queue(this[0], type);
+              return jQuery3.queue(this[0], type);
             }
             return data === void 0 ? this : this.each(function() {
-              var queue = jQuery2.queue(this, type, data);
-              jQuery2._queueHooks(this, type);
+              var queue = jQuery3.queue(this, type, data);
+              jQuery3._queueHooks(this, type);
               if (type === "fx" && queue[0] !== "inprogress") {
-                jQuery2.dequeue(this, type);
+                jQuery3.dequeue(this, type);
               }
             });
           },
           dequeue: function(type) {
             return this.each(function() {
-              jQuery2.dequeue(this, type);
+              jQuery3.dequeue(this, type);
             });
           },
           clearQueue: function(type) {
             return this.queue(type || "fx", []);
           },
           promise: function(type, obj) {
-            var tmp, count = 1, defer = jQuery2.Deferred(), elements = this, i = this.length, resolve = function() {
+            var tmp, count = 1, defer = jQuery3.Deferred(), elements = this, i = this.length, resolve = function() {
               if (!--count) {
                 defer.resolveWith(elements, [elements]);
               }
@@ -2513,36 +2513,36 @@
         var cssExpand = ["Top", "Right", "Bottom", "Left"];
         var documentElement = document2.documentElement;
         var isAttached = function(elem) {
-          return jQuery2.contains(elem.ownerDocument, elem);
+          return jQuery3.contains(elem.ownerDocument, elem);
         }, composed = { composed: true };
         if (documentElement.getRootNode) {
           isAttached = function(elem) {
-            return jQuery2.contains(elem.ownerDocument, elem) || elem.getRootNode(composed) === elem.ownerDocument;
+            return jQuery3.contains(elem.ownerDocument, elem) || elem.getRootNode(composed) === elem.ownerDocument;
           };
         }
         var isHiddenWithinTree = function(elem, el) {
           elem = el || elem;
-          return elem.style.display === "none" || elem.style.display === "" && isAttached(elem) && jQuery2.css(elem, "display") === "none";
+          return elem.style.display === "none" || elem.style.display === "" && isAttached(elem) && jQuery3.css(elem, "display") === "none";
         };
         function adjustCSS(elem, prop, valueParts, tween) {
           var adjusted, scale, maxIterations = 20, currentValue = tween ? function() {
             return tween.cur();
           } : function() {
-            return jQuery2.css(elem, prop, "");
-          }, initial = currentValue(), unit = valueParts && valueParts[3] || (jQuery2.cssNumber[prop] ? "" : "px"), initialInUnit = elem.nodeType && (jQuery2.cssNumber[prop] || unit !== "px" && +initial) && rcssNum.exec(jQuery2.css(elem, prop));
+            return jQuery3.css(elem, prop, "");
+          }, initial = currentValue(), unit = valueParts && valueParts[3] || (jQuery3.cssNumber[prop] ? "" : "px"), initialInUnit = elem.nodeType && (jQuery3.cssNumber[prop] || unit !== "px" && +initial) && rcssNum.exec(jQuery3.css(elem, prop));
           if (initialInUnit && initialInUnit[3] !== unit) {
             initial = initial / 2;
             unit = unit || initialInUnit[3];
             initialInUnit = +initial || 1;
             while (maxIterations--) {
-              jQuery2.style(elem, prop, initialInUnit + unit);
+              jQuery3.style(elem, prop, initialInUnit + unit);
               if ((1 - scale) * (1 - (scale = currentValue() / initial || 0.5)) <= 0) {
                 maxIterations = 0;
               }
               initialInUnit = initialInUnit / scale;
             }
             initialInUnit = initialInUnit * 2;
-            jQuery2.style(elem, prop, initialInUnit + unit);
+            jQuery3.style(elem, prop, initialInUnit + unit);
             valueParts = valueParts || [];
           }
           if (valueParts) {
@@ -2563,7 +2563,7 @@
             return display;
           }
           temp = doc.body.appendChild(doc.createElement(nodeName2));
-          display = jQuery2.css(temp, "display");
+          display = jQuery3.css(temp, "display");
           temp.parentNode.removeChild(temp);
           if (display === "none") {
             display = "block";
@@ -2603,7 +2603,7 @@
           }
           return elements;
         }
-        jQuery2.fn.extend({
+        jQuery3.fn.extend({
           show: function() {
             return showHide(this, true);
           },
@@ -2616,9 +2616,9 @@
             }
             return this.each(function() {
               if (isHiddenWithinTree(this)) {
-                jQuery2(this).show();
+                jQuery3(this).show();
               } else {
-                jQuery2(this).hide();
+                jQuery3(this).hide();
               }
             });
           }
@@ -2660,7 +2660,7 @@
             ret = [];
           }
           if (tag === void 0 || tag && nodeName(context, tag)) {
-            return jQuery2.merge([context], ret);
+            return jQuery3.merge([context], ret);
           }
           return ret;
         }
@@ -2681,19 +2681,19 @@
             elem = elems[i];
             if (elem || elem === 0) {
               if (toType(elem) === "object") {
-                jQuery2.merge(nodes, elem.nodeType ? [elem] : elem);
+                jQuery3.merge(nodes, elem.nodeType ? [elem] : elem);
               } else if (!rhtml.test(elem)) {
                 nodes.push(context.createTextNode(elem));
               } else {
                 tmp = tmp || fragment.appendChild(context.createElement("div"));
                 tag = (rtagName.exec(elem) || ["", ""])[1].toLowerCase();
                 wrap = wrapMap[tag] || wrapMap._default;
-                tmp.innerHTML = wrap[1] + jQuery2.htmlPrefilter(elem) + wrap[2];
+                tmp.innerHTML = wrap[1] + jQuery3.htmlPrefilter(elem) + wrap[2];
                 j = wrap[0];
                 while (j--) {
                   tmp = tmp.lastChild;
                 }
-                jQuery2.merge(nodes, tmp.childNodes);
+                jQuery3.merge(nodes, tmp.childNodes);
                 tmp = fragment.firstChild;
                 tmp.textContent = "";
               }
@@ -2702,7 +2702,7 @@
           fragment.textContent = "";
           i = 0;
           while (elem = nodes[i++]) {
-            if (selection && jQuery2.inArray(elem, selection) > -1) {
+            if (selection && jQuery3.inArray(elem, selection) > -1) {
               if (ignored) {
                 ignored.push(elem);
               }
@@ -2773,16 +2773,16 @@
           if (one === 1) {
             origFn = fn;
             fn = function(event) {
-              jQuery2().off(event);
+              jQuery3().off(event);
               return origFn.apply(this, arguments);
             };
-            fn.guid = origFn.guid || (origFn.guid = jQuery2.guid++);
+            fn.guid = origFn.guid || (origFn.guid = jQuery3.guid++);
           }
           return elem.each(function() {
-            jQuery2.event.add(this, types, fn, data, selector);
+            jQuery3.event.add(this, types, fn, data, selector);
           });
         }
-        jQuery2.event = {
+        jQuery3.event = {
           global: {},
           add: function(elem, types, handler, data, selector) {
             var handleObjIn, eventHandle, tmp, events, t, handleObj, special, handlers, type, namespaces, origType, elemData = dataPriv.get(elem);
@@ -2795,17 +2795,17 @@
               selector = handleObjIn.selector;
             }
             if (selector) {
-              jQuery2.find.matchesSelector(documentElement, selector);
+              jQuery3.find.matchesSelector(documentElement, selector);
             }
             if (!handler.guid) {
-              handler.guid = jQuery2.guid++;
+              handler.guid = jQuery3.guid++;
             }
             if (!(events = elemData.events)) {
               events = elemData.events = /* @__PURE__ */ Object.create(null);
             }
             if (!(eventHandle = elemData.handle)) {
               eventHandle = elemData.handle = function(e) {
-                return typeof jQuery2 !== "undefined" && jQuery2.event.triggered !== e.type ? jQuery2.event.dispatch.apply(elem, arguments) : void 0;
+                return typeof jQuery3 !== "undefined" && jQuery3.event.triggered !== e.type ? jQuery3.event.dispatch.apply(elem, arguments) : void 0;
               };
             }
             types = (types || "").match(rnothtmlwhite) || [""];
@@ -2817,17 +2817,17 @@
               if (!type) {
                 continue;
               }
-              special = jQuery2.event.special[type] || {};
+              special = jQuery3.event.special[type] || {};
               type = (selector ? special.delegateType : special.bindType) || type;
-              special = jQuery2.event.special[type] || {};
-              handleObj = jQuery2.extend({
+              special = jQuery3.event.special[type] || {};
+              handleObj = jQuery3.extend({
                 type,
                 origType,
                 data,
                 handler,
                 guid: handler.guid,
                 selector,
-                needsContext: selector && jQuery2.expr.match.needsContext.test(selector),
+                needsContext: selector && jQuery3.expr.match.needsContext.test(selector),
                 namespace: namespaces.join(".")
               }, handleObjIn);
               if (!(handlers = events[type])) {
@@ -2850,7 +2850,7 @@
               } else {
                 handlers.push(handleObj);
               }
-              jQuery2.event.global[type] = true;
+              jQuery3.event.global[type] = true;
             }
           },
           remove: function(elem, types, handler, selector, mappedTypes) {
@@ -2866,11 +2866,11 @@
               namespaces = (tmp[2] || "").split(".").sort();
               if (!type) {
                 for (type in events) {
-                  jQuery2.event.remove(elem, type + types[t], handler, selector, true);
+                  jQuery3.event.remove(elem, type + types[t], handler, selector, true);
                 }
                 continue;
               }
-              special = jQuery2.event.special[type] || {};
+              special = jQuery3.event.special[type] || {};
               type = (selector ? special.delegateType : special.bindType) || type;
               handlers = events[type] || [];
               tmp = tmp[2] && new RegExp("(^|\\.)" + namespaces.join("\\.(?:.*\\.|)") + "(\\.|$)");
@@ -2889,17 +2889,17 @@
               }
               if (origCount && !handlers.length) {
                 if (!special.teardown || special.teardown.call(elem, namespaces, elemData.handle) === false) {
-                  jQuery2.removeEvent(elem, type, elemData.handle);
+                  jQuery3.removeEvent(elem, type, elemData.handle);
                 }
                 delete events[type];
               }
             }
-            if (jQuery2.isEmptyObject(events)) {
+            if (jQuery3.isEmptyObject(events)) {
               dataPriv.remove(elem, "handle events");
             }
           },
           dispatch: function(nativeEvent) {
-            var i, j, ret, matched, handleObj, handlerQueue, args = new Array(arguments.length), event = jQuery2.event.fix(nativeEvent), handlers = (dataPriv.get(this, "events") || /* @__PURE__ */ Object.create(null))[event.type] || [], special = jQuery2.event.special[event.type] || {};
+            var i, j, ret, matched, handleObj, handlerQueue, args = new Array(arguments.length), event = jQuery3.event.fix(nativeEvent), handlers = (dataPriv.get(this, "events") || /* @__PURE__ */ Object.create(null))[event.type] || [], special = jQuery3.event.special[event.type] || {};
             args[0] = event;
             for (i = 1; i < arguments.length; i++) {
               args[i] = arguments[i];
@@ -2908,7 +2908,7 @@
             if (special.preDispatch && special.preDispatch.call(this, event) === false) {
               return;
             }
-            handlerQueue = jQuery2.event.handlers.call(this, event, handlers);
+            handlerQueue = jQuery3.event.handlers.call(this, event, handlers);
             i = 0;
             while ((matched = handlerQueue[i++]) && !event.isPropagationStopped()) {
               event.currentTarget = matched.elem;
@@ -2917,7 +2917,7 @@
                 if (!event.rnamespace || handleObj.namespace === false || event.rnamespace.test(handleObj.namespace)) {
                   event.handleObj = handleObj;
                   event.data = handleObj.data;
-                  ret = ((jQuery2.event.special[handleObj.origType] || {}).handle || handleObj.handler).apply(matched.elem, args);
+                  ret = ((jQuery3.event.special[handleObj.origType] || {}).handle || handleObj.handler).apply(matched.elem, args);
                   if (ret !== void 0) {
                     if ((event.result = ret) === false) {
                       event.preventDefault();
@@ -2943,7 +2943,7 @@
                     handleObj = handlers[i];
                     sel = handleObj.selector + " ";
                     if (matchedSelectors[sel] === void 0) {
-                      matchedSelectors[sel] = handleObj.needsContext ? jQuery2(sel, this).index(cur) > -1 : jQuery2.find(sel, this, null, [cur]).length;
+                      matchedSelectors[sel] = handleObj.needsContext ? jQuery3(sel, this).index(cur) > -1 : jQuery3.find(sel, this, null, [cur]).length;
                     }
                     if (matchedSelectors[sel]) {
                       matchedHandlers.push(handleObj);
@@ -2962,7 +2962,7 @@
             return handlerQueue;
           },
           addProp: function(name, hook) {
-            Object.defineProperty(jQuery2.Event.prototype, name, {
+            Object.defineProperty(jQuery3.Event.prototype, name, {
               enumerable: true,
               configurable: true,
               get: isFunction(hook) ? function() {
@@ -2985,7 +2985,7 @@
             });
           },
           fix: function(originalEvent) {
-            return originalEvent[jQuery2.expando] ? originalEvent : new jQuery2.Event(originalEvent);
+            return originalEvent[jQuery3.expando] ? originalEvent : new jQuery3.Event(originalEvent);
           },
           special: {
             load: {
@@ -3023,12 +3023,12 @@
         function leverageNative(el, type, expectSync2) {
           if (!expectSync2) {
             if (dataPriv.get(el, type) === void 0) {
-              jQuery2.event.add(el, type, returnTrue);
+              jQuery3.event.add(el, type, returnTrue);
             }
             return;
           }
           dataPriv.set(el, type, false);
-          jQuery2.event.add(el, type, {
+          jQuery3.event.add(el, type, {
             namespace: false,
             handler: function(event) {
               var notAsync, result, saved = dataPriv.get(this, type);
@@ -3049,13 +3049,13 @@
                     event.preventDefault();
                     return result && result.value;
                   }
-                } else if ((jQuery2.event.special[type] || {}).delegateType) {
+                } else if ((jQuery3.event.special[type] || {}).delegateType) {
                   event.stopPropagation();
                 }
               } else if (saved.length) {
                 dataPriv.set(this, type, {
-                  value: jQuery2.event.trigger(
-                    jQuery2.extend(saved[0], jQuery2.Event.prototype),
+                  value: jQuery3.event.trigger(
+                    jQuery3.extend(saved[0], jQuery3.Event.prototype),
                     saved.slice(1),
                     this
                   )
@@ -3065,14 +3065,14 @@
             }
           });
         }
-        jQuery2.removeEvent = function(elem, type, handle) {
+        jQuery3.removeEvent = function(elem, type, handle) {
           if (elem.removeEventListener) {
             elem.removeEventListener(type, handle);
           }
         };
-        jQuery2.Event = function(src, props) {
-          if (!(this instanceof jQuery2.Event)) {
-            return new jQuery2.Event(src, props);
+        jQuery3.Event = function(src, props) {
+          if (!(this instanceof jQuery3.Event)) {
+            return new jQuery3.Event(src, props);
           }
           if (src && src.type) {
             this.originalEvent = src;
@@ -3085,13 +3085,13 @@
             this.type = src;
           }
           if (props) {
-            jQuery2.extend(this, props);
+            jQuery3.extend(this, props);
           }
           this.timeStamp = src && src.timeStamp || Date.now();
-          this[jQuery2.expando] = true;
+          this[jQuery3.expando] = true;
         };
-        jQuery2.Event.prototype = {
-          constructor: jQuery2.Event,
+        jQuery3.Event.prototype = {
+          constructor: jQuery3.Event,
           isDefaultPrevented: returnFalse,
           isPropagationStopped: returnFalse,
           isImmediatePropagationStopped: returnFalse,
@@ -3119,7 +3119,7 @@
             this.stopPropagation();
           }
         };
-        jQuery2.each({
+        jQuery3.each({
           altKey: true,
           bubbles: true,
           cancelable: true,
@@ -3151,9 +3151,9 @@
           toElement: true,
           touches: true,
           which: true
-        }, jQuery2.event.addProp);
-        jQuery2.each({ focus: "focusin", blur: "focusout" }, function(type, delegateType) {
-          jQuery2.event.special[type] = {
+        }, jQuery3.event.addProp);
+        jQuery3.each({ focus: "focusin", blur: "focusout" }, function(type, delegateType) {
+          jQuery3.event.special[type] = {
             setup: function() {
               leverageNative(this, type, expectSync);
               return false;
@@ -3168,18 +3168,18 @@
             delegateType
           };
         });
-        jQuery2.each({
+        jQuery3.each({
           mouseenter: "mouseover",
           mouseleave: "mouseout",
           pointerenter: "pointerover",
           pointerleave: "pointerout"
         }, function(orig, fix) {
-          jQuery2.event.special[orig] = {
+          jQuery3.event.special[orig] = {
             delegateType: fix,
             bindType: fix,
             handle: function(event) {
               var ret, target = this, related = event.relatedTarget, handleObj = event.handleObj;
-              if (!related || related !== target && !jQuery2.contains(target, related)) {
+              if (!related || related !== target && !jQuery3.contains(target, related)) {
                 event.type = handleObj.origType;
                 ret = handleObj.handler.apply(this, arguments);
                 event.type = fix;
@@ -3188,7 +3188,7 @@
             }
           };
         });
-        jQuery2.fn.extend({
+        jQuery3.fn.extend({
           on: function(types, selector, data, fn) {
             return on(this, types, selector, data, fn);
           },
@@ -3199,7 +3199,7 @@
             var handleObj, type;
             if (types && types.preventDefault && types.handleObj) {
               handleObj = types.handleObj;
-              jQuery2(types.delegateTarget).off(
+              jQuery3(types.delegateTarget).off(
                 handleObj.namespace ? handleObj.origType + "." + handleObj.namespace : handleObj.origType,
                 handleObj.selector,
                 handleObj.handler
@@ -3220,14 +3220,14 @@
               fn = returnFalse;
             }
             return this.each(function() {
-              jQuery2.event.remove(this, types, fn, selector);
+              jQuery3.event.remove(this, types, fn, selector);
             });
           }
         });
         var rnoInnerhtml = /<script|<style|<link/i, rchecked = /checked\s*(?:[^=]|=\s*.checked.)/i, rcleanScript = /^\s*<!(?:\[CDATA\[|--)|(?:\]\]|--)>\s*$/g;
         function manipulationTarget(elem, content) {
           if (nodeName(elem, "table") && nodeName(content.nodeType !== 11 ? content : content.firstChild, "tr")) {
-            return jQuery2(elem).children("tbody")[0] || elem;
+            return jQuery3(elem).children("tbody")[0] || elem;
           }
           return elem;
         }
@@ -3255,14 +3255,14 @@
               dataPriv.remove(dest, "handle events");
               for (type in events) {
                 for (i = 0, l = events[type].length; i < l; i++) {
-                  jQuery2.event.add(dest, type, events[type][i]);
+                  jQuery3.event.add(dest, type, events[type][i]);
                 }
               }
             }
           }
           if (dataUser.hasData(src)) {
             udataOld = dataUser.access(src);
-            udataCur = jQuery2.extend({}, udataOld);
+            udataCur = jQuery3.extend({}, udataOld);
             dataUser.set(dest, udataCur);
           }
         }
@@ -3293,27 +3293,27 @@
               fragment = first;
             }
             if (first || ignored) {
-              scripts = jQuery2.map(getAll(fragment, "script"), disableScript);
+              scripts = jQuery3.map(getAll(fragment, "script"), disableScript);
               hasScripts = scripts.length;
               for (; i < l; i++) {
                 node = fragment;
                 if (i !== iNoClone) {
-                  node = jQuery2.clone(node, true, true);
+                  node = jQuery3.clone(node, true, true);
                   if (hasScripts) {
-                    jQuery2.merge(scripts, getAll(node, "script"));
+                    jQuery3.merge(scripts, getAll(node, "script"));
                   }
                 }
                 callback.call(collection[i], node, i);
               }
               if (hasScripts) {
                 doc = scripts[scripts.length - 1].ownerDocument;
-                jQuery2.map(scripts, restoreScript);
+                jQuery3.map(scripts, restoreScript);
                 for (i = 0; i < hasScripts; i++) {
                   node = scripts[i];
-                  if (rscriptType.test(node.type || "") && !dataPriv.access(node, "globalEval") && jQuery2.contains(doc, node)) {
+                  if (rscriptType.test(node.type || "") && !dataPriv.access(node, "globalEval") && jQuery3.contains(doc, node)) {
                     if (node.src && (node.type || "").toLowerCase() !== "module") {
-                      if (jQuery2._evalUrl && !node.noModule) {
-                        jQuery2._evalUrl(node.src, {
+                      if (jQuery3._evalUrl && !node.noModule) {
+                        jQuery3._evalUrl(node.src, {
                           nonce: node.nonce || node.getAttribute("nonce")
                         }, doc);
                       }
@@ -3328,10 +3328,10 @@
           return collection;
         }
         function remove(elem, selector, keepData) {
-          var node, nodes = selector ? jQuery2.filter(selector, elem) : elem, i = 0;
+          var node, nodes = selector ? jQuery3.filter(selector, elem) : elem, i = 0;
           for (; (node = nodes[i]) != null; i++) {
             if (!keepData && node.nodeType === 1) {
-              jQuery2.cleanData(getAll(node));
+              jQuery3.cleanData(getAll(node));
             }
             if (node.parentNode) {
               if (keepData && isAttached(node)) {
@@ -3342,13 +3342,13 @@
           }
           return elem;
         }
-        jQuery2.extend({
+        jQuery3.extend({
           htmlPrefilter: function(html) {
             return html;
           },
           clone: function(elem, dataAndEvents, deepDataAndEvents) {
             var i, l, srcElements, destElements, clone = elem.cloneNode(true), inPage = isAttached(elem);
-            if (!support.noCloneChecked && (elem.nodeType === 1 || elem.nodeType === 11) && !jQuery2.isXMLDoc(elem)) {
+            if (!support.noCloneChecked && (elem.nodeType === 1 || elem.nodeType === 11) && !jQuery3.isXMLDoc(elem)) {
               destElements = getAll(clone);
               srcElements = getAll(elem);
               for (i = 0, l = srcElements.length; i < l; i++) {
@@ -3373,16 +3373,16 @@
             return clone;
           },
           cleanData: function(elems) {
-            var data, elem, type, special = jQuery2.event.special, i = 0;
+            var data, elem, type, special = jQuery3.event.special, i = 0;
             for (; (elem = elems[i]) !== void 0; i++) {
               if (acceptData(elem)) {
                 if (data = elem[dataPriv.expando]) {
                   if (data.events) {
                     for (type in data.events) {
                       if (special[type]) {
-                        jQuery2.event.remove(elem, type);
+                        jQuery3.event.remove(elem, type);
                       } else {
-                        jQuery2.removeEvent(elem, type, data.handle);
+                        jQuery3.removeEvent(elem, type, data.handle);
                       }
                     }
                   }
@@ -3395,7 +3395,7 @@
             }
           }
         });
-        jQuery2.fn.extend({
+        jQuery3.fn.extend({
           detach: function(selector) {
             return remove(this, selector, true);
           },
@@ -3404,7 +3404,7 @@
           },
           text: function(value) {
             return access(this, function(value2) {
-              return value2 === void 0 ? jQuery2.text(this) : this.empty().each(function() {
+              return value2 === void 0 ? jQuery3.text(this) : this.empty().each(function() {
                 if (this.nodeType === 1 || this.nodeType === 11 || this.nodeType === 9) {
                   this.textContent = value2;
                 }
@@ -3445,7 +3445,7 @@
             var elem, i = 0;
             for (; (elem = this[i]) != null; i++) {
               if (elem.nodeType === 1) {
-                jQuery2.cleanData(getAll(elem, false));
+                jQuery3.cleanData(getAll(elem, false));
                 elem.textContent = "";
               }
             }
@@ -3455,7 +3455,7 @@
             dataAndEvents = dataAndEvents == null ? false : dataAndEvents;
             deepDataAndEvents = deepDataAndEvents == null ? dataAndEvents : deepDataAndEvents;
             return this.map(function() {
-              return jQuery2.clone(this, dataAndEvents, deepDataAndEvents);
+              return jQuery3.clone(this, dataAndEvents, deepDataAndEvents);
             });
           },
           html: function(value) {
@@ -3465,12 +3465,12 @@
                 return elem.innerHTML;
               }
               if (typeof value2 === "string" && !rnoInnerhtml.test(value2) && !wrapMap[(rtagName.exec(value2) || ["", ""])[1].toLowerCase()]) {
-                value2 = jQuery2.htmlPrefilter(value2);
+                value2 = jQuery3.htmlPrefilter(value2);
                 try {
                   for (; i < l; i++) {
                     elem = this[i] || {};
                     if (elem.nodeType === 1) {
-                      jQuery2.cleanData(getAll(elem, false));
+                      jQuery3.cleanData(getAll(elem, false));
                       elem.innerHTML = value2;
                     }
                   }
@@ -3487,8 +3487,8 @@
             var ignored = [];
             return domManip(this, arguments, function(elem) {
               var parent = this.parentNode;
-              if (jQuery2.inArray(this, ignored) < 0) {
-                jQuery2.cleanData(getAll(this));
+              if (jQuery3.inArray(this, ignored) < 0) {
+                jQuery3.cleanData(getAll(this));
                 if (parent) {
                   parent.replaceChild(elem, this);
                 }
@@ -3496,18 +3496,18 @@
             }, ignored);
           }
         });
-        jQuery2.each({
+        jQuery3.each({
           appendTo: "append",
           prependTo: "prepend",
           insertBefore: "before",
           insertAfter: "after",
           replaceAll: "replaceWith"
         }, function(name, original) {
-          jQuery2.fn[name] = function(selector) {
-            var elems, ret = [], insert = jQuery2(selector), last = insert.length - 1, i = 0;
+          jQuery3.fn[name] = function(selector) {
+            var elems, ret = [], insert = jQuery3(selector), last = insert.length - 1, i = 0;
             for (; i <= last; i++) {
               elems = i === last ? this : this.clone(true);
-              jQuery2(insert[i])[original](elems);
+              jQuery3(insert[i])[original](elems);
               push.apply(ret, elems.get());
             }
             return this.pushStack(ret);
@@ -3563,7 +3563,7 @@
           div.style.backgroundClip = "content-box";
           div.cloneNode(true).style.backgroundClip = "";
           support.clearCloneStyle = div.style.backgroundClip === "content-box";
-          jQuery2.extend(support, {
+          jQuery3.extend(support, {
             boxSizingReliable: function() {
               computeStyleTests();
               return boxSizingReliableVal;
@@ -3610,7 +3610,7 @@
           if (computed) {
             ret = computed.getPropertyValue(name) || computed[name];
             if (ret === "" && !isAttached(elem)) {
-              ret = jQuery2.style(elem, name);
+              ret = jQuery3.style(elem, name);
             }
             if (!support.pixelBoxStyles() && rnumnonpx.test(ret) && rboxStyle.test(name)) {
               width = style.width;
@@ -3647,7 +3647,7 @@
           }
         }
         function finalPropName(name) {
-          var final = jQuery2.cssProps[name] || vendorProps[name];
+          var final = jQuery3.cssProps[name] || vendorProps[name];
           if (final) {
             return final;
           }
@@ -3671,21 +3671,21 @@
           }
           for (; i < 4; i += 2) {
             if (box === "margin") {
-              delta += jQuery2.css(elem, box + cssExpand[i], true, styles);
+              delta += jQuery3.css(elem, box + cssExpand[i], true, styles);
             }
             if (!isBorderBox) {
-              delta += jQuery2.css(elem, "padding" + cssExpand[i], true, styles);
+              delta += jQuery3.css(elem, "padding" + cssExpand[i], true, styles);
               if (box !== "padding") {
-                delta += jQuery2.css(elem, "border" + cssExpand[i] + "Width", true, styles);
+                delta += jQuery3.css(elem, "border" + cssExpand[i] + "Width", true, styles);
               } else {
-                extra += jQuery2.css(elem, "border" + cssExpand[i] + "Width", true, styles);
+                extra += jQuery3.css(elem, "border" + cssExpand[i] + "Width", true, styles);
               }
             } else {
               if (box === "content") {
-                delta -= jQuery2.css(elem, "padding" + cssExpand[i], true, styles);
+                delta -= jQuery3.css(elem, "padding" + cssExpand[i], true, styles);
               }
               if (box !== "margin") {
-                delta -= jQuery2.css(elem, "border" + cssExpand[i] + "Width", true, styles);
+                delta -= jQuery3.css(elem, "border" + cssExpand[i] + "Width", true, styles);
               }
             }
           }
@@ -3697,15 +3697,15 @@
           return delta;
         }
         function getWidthOrHeight(elem, dimension, extra) {
-          var styles = getStyles(elem), boxSizingNeeded = !support.boxSizingReliable() || extra, isBorderBox = boxSizingNeeded && jQuery2.css(elem, "boxSizing", false, styles) === "border-box", valueIsBorderBox = isBorderBox, val = curCSS(elem, dimension, styles), offsetProp = "offset" + dimension[0].toUpperCase() + dimension.slice(1);
+          var styles = getStyles(elem), boxSizingNeeded = !support.boxSizingReliable() || extra, isBorderBox = boxSizingNeeded && jQuery3.css(elem, "boxSizing", false, styles) === "border-box", valueIsBorderBox = isBorderBox, val = curCSS(elem, dimension, styles), offsetProp = "offset" + dimension[0].toUpperCase() + dimension.slice(1);
           if (rnumnonpx.test(val)) {
             if (!extra) {
               return val;
             }
             val = "auto";
           }
-          if ((!support.boxSizingReliable() && isBorderBox || !support.reliableTrDimensions() && nodeName(elem, "tr") || val === "auto" || !parseFloat(val) && jQuery2.css(elem, "display", false, styles) === "inline") && elem.getClientRects().length) {
-            isBorderBox = jQuery2.css(elem, "boxSizing", false, styles) === "border-box";
+          if ((!support.boxSizingReliable() && isBorderBox || !support.reliableTrDimensions() && nodeName(elem, "tr") || val === "auto" || !parseFloat(val) && jQuery3.css(elem, "display", false, styles) === "inline") && elem.getClientRects().length) {
+            isBorderBox = jQuery3.css(elem, "boxSizing", false, styles) === "border-box";
             valueIsBorderBox = offsetProp in elem;
             if (valueIsBorderBox) {
               val = elem[offsetProp];
@@ -3721,7 +3721,7 @@
             val
           ) + "px";
         }
-        jQuery2.extend({
+        jQuery3.extend({
           cssHooks: {
             opacity: {
               get: function(elem, computed) {
@@ -3763,7 +3763,7 @@
             if (!isCustomProp) {
               name = finalPropName(origName);
             }
-            hooks = jQuery2.cssHooks[name] || jQuery2.cssHooks[origName];
+            hooks = jQuery3.cssHooks[name] || jQuery3.cssHooks[origName];
             if (value !== void 0) {
               type = typeof value;
               if (type === "string" && (ret = rcssNum.exec(value)) && ret[1]) {
@@ -3774,7 +3774,7 @@
                 return;
               }
               if (type === "number" && !isCustomProp) {
-                value += ret && ret[3] || (jQuery2.cssNumber[origName] ? "" : "px");
+                value += ret && ret[3] || (jQuery3.cssNumber[origName] ? "" : "px");
               }
               if (!support.clearCloneStyle && value === "" && name.indexOf("background") === 0) {
                 style[name] = "inherit";
@@ -3798,7 +3798,7 @@
             if (!isCustomProp) {
               name = finalPropName(origName);
             }
-            hooks = jQuery2.cssHooks[name] || jQuery2.cssHooks[origName];
+            hooks = jQuery3.cssHooks[name] || jQuery3.cssHooks[origName];
             if (hooks && "get" in hooks) {
               val = hooks.get(elem, true, extra);
             }
@@ -3815,17 +3815,17 @@
             return val;
           }
         });
-        jQuery2.each(["height", "width"], function(_i, dimension) {
-          jQuery2.cssHooks[dimension] = {
+        jQuery3.each(["height", "width"], function(_i, dimension) {
+          jQuery3.cssHooks[dimension] = {
             get: function(elem, computed, extra) {
               if (computed) {
-                return rdisplayswap.test(jQuery2.css(elem, "display")) && (!elem.getClientRects().length || !elem.getBoundingClientRect().width) ? swap(elem, cssShow, function() {
+                return rdisplayswap.test(jQuery3.css(elem, "display")) && (!elem.getClientRects().length || !elem.getBoundingClientRect().width) ? swap(elem, cssShow, function() {
                   return getWidthOrHeight(elem, dimension, extra);
                 }) : getWidthOrHeight(elem, dimension, extra);
               }
             },
             set: function(elem, value, extra) {
-              var matches, styles = getStyles(elem), scrollboxSizeBuggy = !support.scrollboxSize() && styles.position === "absolute", boxSizingNeeded = scrollboxSizeBuggy || extra, isBorderBox = boxSizingNeeded && jQuery2.css(elem, "boxSizing", false, styles) === "border-box", subtract = extra ? boxModelAdjustment(
+              var matches, styles = getStyles(elem), scrollboxSizeBuggy = !support.scrollboxSize() && styles.position === "absolute", boxSizingNeeded = scrollboxSizeBuggy || extra, isBorderBox = boxSizingNeeded && jQuery3.css(elem, "boxSizing", false, styles) === "border-box", subtract = extra ? boxModelAdjustment(
                 elem,
                 dimension,
                 extra,
@@ -3839,13 +3839,13 @@
               }
               if (subtract && (matches = rcssNum.exec(value)) && (matches[3] || "px") !== "px") {
                 elem.style[dimension] = value;
-                value = jQuery2.css(elem, dimension);
+                value = jQuery3.css(elem, dimension);
               }
               return setPositiveNumber(elem, value, subtract);
             }
           };
         });
-        jQuery2.cssHooks.marginLeft = addGetHookIf(
+        jQuery3.cssHooks.marginLeft = addGetHookIf(
           support.reliableMarginLeft,
           function(elem, computed) {
             if (computed) {
@@ -3855,12 +3855,12 @@
             }
           }
         );
-        jQuery2.each({
+        jQuery3.each({
           margin: "",
           padding: "",
           border: "Width"
         }, function(prefix, suffix) {
-          jQuery2.cssHooks[prefix + suffix] = {
+          jQuery3.cssHooks[prefix + suffix] = {
             expand: function(value) {
               var i = 0, expanded = {}, parts = typeof value === "string" ? value.split(" ") : [value];
               for (; i < 4; i++) {
@@ -3870,10 +3870,10 @@
             }
           };
           if (prefix !== "margin") {
-            jQuery2.cssHooks[prefix + suffix].set = setPositiveNumber;
+            jQuery3.cssHooks[prefix + suffix].set = setPositiveNumber;
           }
         });
-        jQuery2.fn.extend({
+        jQuery3.fn.extend({
           css: function(name, value) {
             return access(this, function(elem, name2, value2) {
               var styles, len, map = {}, i = 0;
@@ -3881,28 +3881,28 @@
                 styles = getStyles(elem);
                 len = name2.length;
                 for (; i < len; i++) {
-                  map[name2[i]] = jQuery2.css(elem, name2[i], false, styles);
+                  map[name2[i]] = jQuery3.css(elem, name2[i], false, styles);
                 }
                 return map;
               }
-              return value2 !== void 0 ? jQuery2.style(elem, name2, value2) : jQuery2.css(elem, name2);
+              return value2 !== void 0 ? jQuery3.style(elem, name2, value2) : jQuery3.css(elem, name2);
             }, name, value, arguments.length > 1);
           }
         });
         function Tween(elem, options, prop, end, easing) {
           return new Tween.prototype.init(elem, options, prop, end, easing);
         }
-        jQuery2.Tween = Tween;
+        jQuery3.Tween = Tween;
         Tween.prototype = {
           constructor: Tween,
           init: function(elem, options, prop, end, easing, unit) {
             this.elem = elem;
             this.prop = prop;
-            this.easing = easing || jQuery2.easing._default;
+            this.easing = easing || jQuery3.easing._default;
             this.options = options;
             this.start = this.now = this.cur();
             this.end = end;
-            this.unit = unit || (jQuery2.cssNumber[prop] ? "" : "px");
+            this.unit = unit || (jQuery3.cssNumber[prop] ? "" : "px");
           },
           cur: function() {
             var hooks = Tween.propHooks[this.prop];
@@ -3911,7 +3911,7 @@
           run: function(percent) {
             var eased, hooks = Tween.propHooks[this.prop];
             if (this.options.duration) {
-              this.pos = eased = jQuery2.easing[this.easing](
+              this.pos = eased = jQuery3.easing[this.easing](
                 percent,
                 this.options.duration * percent,
                 0,
@@ -3941,14 +3941,14 @@
               if (tween.elem.nodeType !== 1 || tween.elem[tween.prop] != null && tween.elem.style[tween.prop] == null) {
                 return tween.elem[tween.prop];
               }
-              result = jQuery2.css(tween.elem, tween.prop, "");
+              result = jQuery3.css(tween.elem, tween.prop, "");
               return !result || result === "auto" ? 0 : result;
             },
             set: function(tween) {
-              if (jQuery2.fx.step[tween.prop]) {
-                jQuery2.fx.step[tween.prop](tween);
-              } else if (tween.elem.nodeType === 1 && (jQuery2.cssHooks[tween.prop] || tween.elem.style[finalPropName(tween.prop)] != null)) {
-                jQuery2.style(tween.elem, tween.prop, tween.now + tween.unit);
+              if (jQuery3.fx.step[tween.prop]) {
+                jQuery3.fx.step[tween.prop](tween);
+              } else if (tween.elem.nodeType === 1 && (jQuery3.cssHooks[tween.prop] || tween.elem.style[finalPropName(tween.prop)] != null)) {
+                jQuery3.style(tween.elem, tween.prop, tween.now + tween.unit);
               } else {
                 tween.elem[tween.prop] = tween.now;
               }
@@ -3962,7 +3962,7 @@
             }
           }
         };
-        jQuery2.easing = {
+        jQuery3.easing = {
           linear: function(p) {
             return p;
           },
@@ -3971,17 +3971,17 @@
           },
           _default: "swing"
         };
-        jQuery2.fx = Tween.prototype.init;
-        jQuery2.fx.step = {};
+        jQuery3.fx = Tween.prototype.init;
+        jQuery3.fx.step = {};
         var fxNow, inProgress, rfxtypes = /^(?:toggle|show|hide)$/, rrun = /queueHooks$/;
         function schedule() {
           if (inProgress) {
             if (document2.hidden === false && window2.requestAnimationFrame) {
               window2.requestAnimationFrame(schedule);
             } else {
-              window2.setTimeout(schedule, jQuery2.fx.interval);
+              window2.setTimeout(schedule, jQuery3.fx.interval);
             }
-            jQuery2.fx.tick();
+            jQuery3.fx.tick();
           }
         }
         function createFxNow() {
@@ -4013,7 +4013,7 @@
         function defaultPrefilter(elem, props, opts) {
           var prop, value, toggle, hooks, oldfire, propTween, restoreDisplay, display, isBox = "width" in props || "height" in props, anim = this, orig = {}, style = elem.style, hidden = elem.nodeType && isHiddenWithinTree(elem), dataShow = dataPriv.get(elem, "fxshow");
           if (!opts.queue) {
-            hooks = jQuery2._queueHooks(elem, "fx");
+            hooks = jQuery3._queueHooks(elem, "fx");
             if (hooks.unqueued == null) {
               hooks.unqueued = 0;
               oldfire = hooks.empty.fire;
@@ -4027,7 +4027,7 @@
             anim.always(function() {
               anim.always(function() {
                 hooks.unqueued--;
-                if (!jQuery2.queue(elem, "fx").length) {
+                if (!jQuery3.queue(elem, "fx").length) {
                   hooks.empty.fire();
                 }
               });
@@ -4045,11 +4045,11 @@
                   continue;
                 }
               }
-              orig[prop] = dataShow && dataShow[prop] || jQuery2.style(elem, prop);
+              orig[prop] = dataShow && dataShow[prop] || jQuery3.style(elem, prop);
             }
           }
-          propTween = !jQuery2.isEmptyObject(props);
-          if (!propTween && jQuery2.isEmptyObject(orig)) {
+          propTween = !jQuery3.isEmptyObject(props);
+          if (!propTween && jQuery3.isEmptyObject(orig)) {
             return;
           }
           if (isBox && elem.nodeType === 1) {
@@ -4058,19 +4058,19 @@
             if (restoreDisplay == null) {
               restoreDisplay = dataPriv.get(elem, "display");
             }
-            display = jQuery2.css(elem, "display");
+            display = jQuery3.css(elem, "display");
             if (display === "none") {
               if (restoreDisplay) {
                 display = restoreDisplay;
               } else {
                 showHide([elem], true);
                 restoreDisplay = elem.style.display || restoreDisplay;
-                display = jQuery2.css(elem, "display");
+                display = jQuery3.css(elem, "display");
                 showHide([elem]);
               }
             }
             if (display === "inline" || display === "inline-block" && restoreDisplay != null) {
-              if (jQuery2.css(elem, "float") === "none") {
+              if (jQuery3.css(elem, "float") === "none") {
                 if (!propTween) {
                   anim.done(function() {
                     style.display = restoreDisplay;
@@ -4114,7 +4114,7 @@
                 }
                 dataPriv.remove(elem, "fxshow");
                 for (prop in orig) {
-                  jQuery2.style(elem, prop, orig[prop]);
+                  jQuery3.style(elem, prop, orig[prop]);
                 }
               });
             }
@@ -4142,7 +4142,7 @@
               props[name] = value;
               delete props[index];
             }
-            hooks = jQuery2.cssHooks[name];
+            hooks = jQuery3.cssHooks[name];
             if (hooks && "expand" in hooks) {
               value = hooks.expand(value);
               delete props[name];
@@ -4158,7 +4158,7 @@
           }
         }
         function Animation(elem, properties, options) {
-          var result, stopped, index = 0, length = Animation.prefilters.length, deferred = jQuery2.Deferred().always(function() {
+          var result, stopped, index = 0, length = Animation.prefilters.length, deferred = jQuery3.Deferred().always(function() {
             delete tick.elem;
           }), tick = function() {
             if (stopped) {
@@ -4179,10 +4179,10 @@
             return false;
           }, animation = deferred.promise({
             elem,
-            props: jQuery2.extend({}, properties),
-            opts: jQuery2.extend(true, {
+            props: jQuery3.extend({}, properties),
+            opts: jQuery3.extend(true, {
               specialEasing: {},
-              easing: jQuery2.easing._default
+              easing: jQuery3.easing._default
             }, options),
             originalProperties: properties,
             originalOptions: options,
@@ -4190,7 +4190,7 @@
             duration: options.duration,
             tweens: [],
             createTween: function(prop, end) {
-              var tween = jQuery2.Tween(
+              var tween = jQuery3.Tween(
                 elem,
                 animation.opts,
                 prop,
@@ -4223,18 +4223,18 @@
             result = Animation.prefilters[index].call(animation, elem, props, animation.opts);
             if (result) {
               if (isFunction(result.stop)) {
-                jQuery2._queueHooks(animation.elem, animation.opts.queue).stop = result.stop.bind(result);
+                jQuery3._queueHooks(animation.elem, animation.opts.queue).stop = result.stop.bind(result);
               }
               return result;
             }
           }
-          jQuery2.map(props, createTween, animation);
+          jQuery3.map(props, createTween, animation);
           if (isFunction(animation.opts.start)) {
             animation.opts.start.call(elem, animation);
           }
           animation.progress(animation.opts.progress).done(animation.opts.done, animation.opts.complete).fail(animation.opts.fail).always(animation.opts.always);
-          jQuery2.fx.timer(
-            jQuery2.extend(tick, {
+          jQuery3.fx.timer(
+            jQuery3.extend(tick, {
               elem,
               anim: animation,
               queue: animation.opts.queue
@@ -4242,7 +4242,7 @@
           );
           return animation;
         }
-        jQuery2.Animation = jQuery2.extend(Animation, {
+        jQuery3.Animation = jQuery3.extend(Animation, {
           tweeners: {
             "*": [function(prop, value) {
               var tween = this.createTween(prop, value);
@@ -4273,20 +4273,20 @@
             }
           }
         });
-        jQuery2.speed = function(speed, easing, fn) {
-          var opt = speed && typeof speed === "object" ? jQuery2.extend({}, speed) : {
+        jQuery3.speed = function(speed, easing, fn) {
+          var opt = speed && typeof speed === "object" ? jQuery3.extend({}, speed) : {
             complete: fn || !fn && easing || isFunction(speed) && speed,
             duration: speed,
             easing: fn && easing || easing && !isFunction(easing) && easing
           };
-          if (jQuery2.fx.off) {
+          if (jQuery3.fx.off) {
             opt.duration = 0;
           } else {
             if (typeof opt.duration !== "number") {
-              if (opt.duration in jQuery2.fx.speeds) {
-                opt.duration = jQuery2.fx.speeds[opt.duration];
+              if (opt.duration in jQuery3.fx.speeds) {
+                opt.duration = jQuery3.fx.speeds[opt.duration];
               } else {
-                opt.duration = jQuery2.fx.speeds._default;
+                opt.duration = jQuery3.fx.speeds._default;
               }
             }
           }
@@ -4299,18 +4299,18 @@
               opt.old.call(this);
             }
             if (opt.queue) {
-              jQuery2.dequeue(this, opt.queue);
+              jQuery3.dequeue(this, opt.queue);
             }
           };
           return opt;
         };
-        jQuery2.fn.extend({
+        jQuery3.fn.extend({
           fadeTo: function(speed, to, easing, callback) {
             return this.filter(isHiddenWithinTree).css("opacity", 0).show().end().animate({ opacity: to }, speed, easing, callback);
           },
           animate: function(prop, speed, easing, callback) {
-            var empty = jQuery2.isEmptyObject(prop), optall = jQuery2.speed(speed, easing, callback), doAnimation = function() {
-              var anim = Animation(this, jQuery2.extend({}, prop), optall);
+            var empty = jQuery3.isEmptyObject(prop), optall = jQuery3.speed(speed, easing, callback), doAnimation = function() {
+              var anim = Animation(this, jQuery3.extend({}, prop), optall);
               if (empty || dataPriv.get(this, "finish")) {
                 anim.stop(true);
               }
@@ -4333,7 +4333,7 @@
               this.queue(type || "fx", []);
             }
             return this.each(function() {
-              var dequeue = true, index = type != null && type + "queueHooks", timers = jQuery2.timers, data = dataPriv.get(this);
+              var dequeue = true, index = type != null && type + "queueHooks", timers = jQuery3.timers, data = dataPriv.get(this);
               if (index) {
                 if (data[index] && data[index].stop) {
                   stopQueue(data[index]);
@@ -4353,7 +4353,7 @@
                 }
               }
               if (dequeue || !gotoEnd) {
-                jQuery2.dequeue(this, type);
+                jQuery3.dequeue(this, type);
               }
             });
           },
@@ -4362,9 +4362,9 @@
               type = type || "fx";
             }
             return this.each(function() {
-              var index, data = dataPriv.get(this), queue = data[type + "queue"], hooks = data[type + "queueHooks"], timers = jQuery2.timers, length = queue ? queue.length : 0;
+              var index, data = dataPriv.get(this), queue = data[type + "queue"], hooks = data[type + "queueHooks"], timers = jQuery3.timers, length = queue ? queue.length : 0;
               data.finish = true;
-              jQuery2.queue(this, type, []);
+              jQuery3.queue(this, type, []);
               if (hooks && hooks.stop) {
                 hooks.stop.call(this, true);
               }
@@ -4383,13 +4383,13 @@
             });
           }
         });
-        jQuery2.each(["toggle", "show", "hide"], function(_i, name) {
-          var cssFn = jQuery2.fn[name];
-          jQuery2.fn[name] = function(speed, easing, callback) {
+        jQuery3.each(["toggle", "show", "hide"], function(_i, name) {
+          var cssFn = jQuery3.fn[name];
+          jQuery3.fn[name] = function(speed, easing, callback) {
             return speed == null || typeof speed === "boolean" ? cssFn.apply(this, arguments) : this.animate(genFx(name, true), speed, easing, callback);
           };
         });
-        jQuery2.each({
+        jQuery3.each({
           slideDown: genFx("show"),
           slideUp: genFx("hide"),
           slideToggle: genFx("toggle"),
@@ -4397,13 +4397,13 @@
           fadeOut: { opacity: "hide" },
           fadeToggle: { opacity: "toggle" }
         }, function(name, props) {
-          jQuery2.fn[name] = function(speed, easing, callback) {
+          jQuery3.fn[name] = function(speed, easing, callback) {
             return this.animate(props, speed, easing, callback);
           };
         });
-        jQuery2.timers = [];
-        jQuery2.fx.tick = function() {
-          var timer, i = 0, timers = jQuery2.timers;
+        jQuery3.timers = [];
+        jQuery3.fx.tick = function() {
+          var timer, i = 0, timers = jQuery3.timers;
           fxNow = Date.now();
           for (; i < timers.length; i++) {
             timer = timers[i];
@@ -4412,32 +4412,32 @@
             }
           }
           if (!timers.length) {
-            jQuery2.fx.stop();
+            jQuery3.fx.stop();
           }
           fxNow = void 0;
         };
-        jQuery2.fx.timer = function(timer) {
-          jQuery2.timers.push(timer);
-          jQuery2.fx.start();
+        jQuery3.fx.timer = function(timer) {
+          jQuery3.timers.push(timer);
+          jQuery3.fx.start();
         };
-        jQuery2.fx.interval = 13;
-        jQuery2.fx.start = function() {
+        jQuery3.fx.interval = 13;
+        jQuery3.fx.start = function() {
           if (inProgress) {
             return;
           }
           inProgress = true;
           schedule();
         };
-        jQuery2.fx.stop = function() {
+        jQuery3.fx.stop = function() {
           inProgress = null;
         };
-        jQuery2.fx.speeds = {
+        jQuery3.fx.speeds = {
           slow: 600,
           fast: 200,
           _default: 400
         };
-        jQuery2.fn.delay = function(time, type) {
-          time = jQuery2.fx ? jQuery2.fx.speeds[time] || time : time;
+        jQuery3.fn.delay = function(time, type) {
+          time = jQuery3.fx ? jQuery3.fx.speeds[time] || time : time;
           type = type || "fx";
           return this.queue(type, function(next, hooks) {
             var timeout = window2.setTimeout(next, time);
@@ -4456,32 +4456,32 @@
           input.type = "radio";
           support.radioValue = input.value === "t";
         })();
-        var boolHook, attrHandle = jQuery2.expr.attrHandle;
-        jQuery2.fn.extend({
+        var boolHook, attrHandle = jQuery3.expr.attrHandle;
+        jQuery3.fn.extend({
           attr: function(name, value) {
-            return access(this, jQuery2.attr, name, value, arguments.length > 1);
+            return access(this, jQuery3.attr, name, value, arguments.length > 1);
           },
           removeAttr: function(name) {
             return this.each(function() {
-              jQuery2.removeAttr(this, name);
+              jQuery3.removeAttr(this, name);
             });
           }
         });
-        jQuery2.extend({
+        jQuery3.extend({
           attr: function(elem, name, value) {
             var ret, hooks, nType = elem.nodeType;
             if (nType === 3 || nType === 8 || nType === 2) {
               return;
             }
             if (typeof elem.getAttribute === "undefined") {
-              return jQuery2.prop(elem, name, value);
+              return jQuery3.prop(elem, name, value);
             }
-            if (nType !== 1 || !jQuery2.isXMLDoc(elem)) {
-              hooks = jQuery2.attrHooks[name.toLowerCase()] || (jQuery2.expr.match.bool.test(name) ? boolHook : void 0);
+            if (nType !== 1 || !jQuery3.isXMLDoc(elem)) {
+              hooks = jQuery3.attrHooks[name.toLowerCase()] || (jQuery3.expr.match.bool.test(name) ? boolHook : void 0);
             }
             if (value !== void 0) {
               if (value === null) {
-                jQuery2.removeAttr(elem, name);
+                jQuery3.removeAttr(elem, name);
                 return;
               }
               if (hooks && "set" in hooks && (ret = hooks.set(elem, value, name)) !== void 0) {
@@ -4493,7 +4493,7 @@
             if (hooks && "get" in hooks && (ret = hooks.get(elem, name)) !== null) {
               return ret;
             }
-            ret = jQuery2.find.attr(elem, name);
+            ret = jQuery3.find.attr(elem, name);
             return ret == null ? void 0 : ret;
           },
           attrHooks: {
@@ -4522,15 +4522,15 @@
         boolHook = {
           set: function(elem, value, name) {
             if (value === false) {
-              jQuery2.removeAttr(elem, name);
+              jQuery3.removeAttr(elem, name);
             } else {
               elem.setAttribute(name, name);
             }
             return name;
           }
         };
-        jQuery2.each(jQuery2.expr.match.bool.source.match(/\w+/g), function(_i, name) {
-          var getter = attrHandle[name] || jQuery2.find.attr;
+        jQuery3.each(jQuery3.expr.match.bool.source.match(/\w+/g), function(_i, name) {
+          var getter = attrHandle[name] || jQuery3.find.attr;
           attrHandle[name] = function(elem, name2, isXML) {
             var ret, handle, lowercaseName = name2.toLowerCase();
             if (!isXML) {
@@ -4543,25 +4543,25 @@
           };
         });
         var rfocusable = /^(?:input|select|textarea|button)$/i, rclickable = /^(?:a|area)$/i;
-        jQuery2.fn.extend({
+        jQuery3.fn.extend({
           prop: function(name, value) {
-            return access(this, jQuery2.prop, name, value, arguments.length > 1);
+            return access(this, jQuery3.prop, name, value, arguments.length > 1);
           },
           removeProp: function(name) {
             return this.each(function() {
-              delete this[jQuery2.propFix[name] || name];
+              delete this[jQuery3.propFix[name] || name];
             });
           }
         });
-        jQuery2.extend({
+        jQuery3.extend({
           prop: function(elem, name, value) {
             var ret, hooks, nType = elem.nodeType;
             if (nType === 3 || nType === 8 || nType === 2) {
               return;
             }
-            if (nType !== 1 || !jQuery2.isXMLDoc(elem)) {
-              name = jQuery2.propFix[name] || name;
-              hooks = jQuery2.propHooks[name];
+            if (nType !== 1 || !jQuery3.isXMLDoc(elem)) {
+              name = jQuery3.propFix[name] || name;
+              hooks = jQuery3.propHooks[name];
             }
             if (value !== void 0) {
               if (hooks && "set" in hooks && (ret = hooks.set(elem, value, name)) !== void 0) {
@@ -4577,7 +4577,7 @@
           propHooks: {
             tabIndex: {
               get: function(elem) {
-                var tabindex = jQuery2.find.attr(elem, "tabindex");
+                var tabindex = jQuery3.find.attr(elem, "tabindex");
                 if (tabindex) {
                   return parseInt(tabindex, 10);
                 }
@@ -4594,7 +4594,7 @@
           }
         });
         if (!support.optSelected) {
-          jQuery2.propHooks.selected = {
+          jQuery3.propHooks.selected = {
             get: function(elem) {
               var parent = elem.parentNode;
               if (parent && parent.parentNode) {
@@ -4613,7 +4613,7 @@
             }
           };
         }
-        jQuery2.each([
+        jQuery3.each([
           "tabIndex",
           "readOnly",
           "maxLength",
@@ -4625,7 +4625,7 @@
           "frameBorder",
           "contentEditable"
         ], function() {
-          jQuery2.propFix[this.toLowerCase()] = this;
+          jQuery3.propFix[this.toLowerCase()] = this;
         });
         function stripAndCollapse(value) {
           var tokens = value.match(rnothtmlwhite) || [];
@@ -4643,12 +4643,12 @@
           }
           return [];
         }
-        jQuery2.fn.extend({
+        jQuery3.fn.extend({
           addClass: function(value) {
             var classes, elem, cur, curValue, clazz, j, finalValue, i = 0;
             if (isFunction(value)) {
               return this.each(function(j2) {
-                jQuery2(this).addClass(value.call(this, j2, getClass(this)));
+                jQuery3(this).addClass(value.call(this, j2, getClass(this)));
               });
             }
             classes = classesToArray(value);
@@ -4676,7 +4676,7 @@
             var classes, elem, cur, curValue, clazz, j, finalValue, i = 0;
             if (isFunction(value)) {
               return this.each(function(j2) {
-                jQuery2(this).removeClass(value.call(this, j2, getClass(this)));
+                jQuery3(this).removeClass(value.call(this, j2, getClass(this)));
               });
             }
             if (!arguments.length) {
@@ -4710,7 +4710,7 @@
             }
             if (isFunction(value)) {
               return this.each(function(i) {
-                jQuery2(this).toggleClass(
+                jQuery3(this).toggleClass(
                   value.call(this, i, getClass(this), stateVal),
                   stateVal
                 );
@@ -4720,7 +4720,7 @@
               var className, i, self, classNames;
               if (isValidValue) {
                 i = 0;
-                self = jQuery2(this);
+                self = jQuery3(this);
                 classNames = classesToArray(value);
                 while (className = classNames[i++]) {
                   if (self.hasClass(className)) {
@@ -4755,12 +4755,12 @@
           }
         });
         var rreturn = /\r/g;
-        jQuery2.fn.extend({
+        jQuery3.fn.extend({
           val: function(value) {
             var hooks, ret, valueIsFunction, elem = this[0];
             if (!arguments.length) {
               if (elem) {
-                hooks = jQuery2.valHooks[elem.type] || jQuery2.valHooks[elem.nodeName.toLowerCase()];
+                hooks = jQuery3.valHooks[elem.type] || jQuery3.valHooks[elem.nodeName.toLowerCase()];
                 if (hooks && "get" in hooks && (ret = hooks.get(elem, "value")) !== void 0) {
                   return ret;
                 }
@@ -4779,7 +4779,7 @@
                 return;
               }
               if (valueIsFunction) {
-                val = value.call(this, i, jQuery2(this).val());
+                val = value.call(this, i, jQuery3(this).val());
               } else {
                 val = value;
               }
@@ -4788,23 +4788,23 @@
               } else if (typeof val === "number") {
                 val += "";
               } else if (Array.isArray(val)) {
-                val = jQuery2.map(val, function(value2) {
+                val = jQuery3.map(val, function(value2) {
                   return value2 == null ? "" : value2 + "";
                 });
               }
-              hooks = jQuery2.valHooks[this.type] || jQuery2.valHooks[this.nodeName.toLowerCase()];
+              hooks = jQuery3.valHooks[this.type] || jQuery3.valHooks[this.nodeName.toLowerCase()];
               if (!hooks || !("set" in hooks) || hooks.set(this, val, "value") === void 0) {
                 this.value = val;
               }
             });
           }
         });
-        jQuery2.extend({
+        jQuery3.extend({
           valHooks: {
             option: {
               get: function(elem) {
-                var val = jQuery2.find.attr(elem, "value");
-                return val != null ? val : stripAndCollapse(jQuery2.text(elem));
+                var val = jQuery3.find.attr(elem, "value");
+                return val != null ? val : stripAndCollapse(jQuery3.text(elem));
               }
             },
             select: {
@@ -4818,7 +4818,7 @@
                 for (; i < max; i++) {
                   option = options[i];
                   if ((option.selected || i === index) && !option.disabled && (!option.parentNode.disabled || !nodeName(option.parentNode, "optgroup"))) {
-                    value = jQuery2(option).val();
+                    value = jQuery3(option).val();
                     if (one) {
                       return value;
                     }
@@ -4828,10 +4828,10 @@
                 return values;
               },
               set: function(elem, value) {
-                var optionSet, option, options = elem.options, values = jQuery2.makeArray(value), i = options.length;
+                var optionSet, option, options = elem.options, values = jQuery3.makeArray(value), i = options.length;
                 while (i--) {
                   option = options[i];
-                  if (option.selected = jQuery2.inArray(jQuery2.valHooks.option.get(option), values) > -1) {
+                  if (option.selected = jQuery3.inArray(jQuery3.valHooks.option.get(option), values) > -1) {
                     optionSet = true;
                   }
                 }
@@ -4843,16 +4843,16 @@
             }
           }
         });
-        jQuery2.each(["radio", "checkbox"], function() {
-          jQuery2.valHooks[this] = {
+        jQuery3.each(["radio", "checkbox"], function() {
+          jQuery3.valHooks[this] = {
             set: function(elem, value) {
               if (Array.isArray(value)) {
-                return elem.checked = jQuery2.inArray(jQuery2(elem).val(), value) > -1;
+                return elem.checked = jQuery3.inArray(jQuery3(elem).val(), value) > -1;
               }
             }
           };
           if (!support.checkOn) {
-            jQuery2.valHooks[this].get = function(elem) {
+            jQuery3.valHooks[this].get = function(elem) {
               return elem.getAttribute("value") === null ? "on" : elem.value;
             };
           }
@@ -4861,14 +4861,14 @@
         var rfocusMorph = /^(?:focusinfocus|focusoutblur)$/, stopPropagationCallback = function(e) {
           e.stopPropagation();
         };
-        jQuery2.extend(jQuery2.event, {
+        jQuery3.extend(jQuery3.event, {
           trigger: function(event, data, elem, onlyHandlers) {
             var i, cur, tmp, bubbleType, ontype, handle, special, lastElement, eventPath = [elem || document2], type = hasOwn.call(event, "type") ? event.type : event, namespaces = hasOwn.call(event, "namespace") ? event.namespace.split(".") : [];
             cur = lastElement = tmp = elem = elem || document2;
             if (elem.nodeType === 3 || elem.nodeType === 8) {
               return;
             }
-            if (rfocusMorph.test(type + jQuery2.event.triggered)) {
+            if (rfocusMorph.test(type + jQuery3.event.triggered)) {
               return;
             }
             if (type.indexOf(".") > -1) {
@@ -4877,7 +4877,7 @@
               namespaces.sort();
             }
             ontype = type.indexOf(":") < 0 && "on" + type;
-            event = event[jQuery2.expando] ? event : new jQuery2.Event(type, typeof event === "object" && event);
+            event = event[jQuery3.expando] ? event : new jQuery3.Event(type, typeof event === "object" && event);
             event.isTrigger = onlyHandlers ? 2 : 3;
             event.namespace = namespaces.join(".");
             event.rnamespace = event.namespace ? new RegExp("(^|\\.)" + namespaces.join("\\.(?:.*\\.|)") + "(\\.|$)") : null;
@@ -4885,8 +4885,8 @@
             if (!event.target) {
               event.target = elem;
             }
-            data = data == null ? [event] : jQuery2.makeArray(data, [event]);
-            special = jQuery2.event.special[type] || {};
+            data = data == null ? [event] : jQuery3.makeArray(data, [event]);
+            special = jQuery3.event.special[type] || {};
             if (!onlyHandlers && special.trigger && special.trigger.apply(elem, data) === false) {
               return;
             }
@@ -4927,7 +4927,7 @@
                   if (tmp) {
                     elem[ontype] = null;
                   }
-                  jQuery2.event.triggered = type;
+                  jQuery3.event.triggered = type;
                   if (event.isPropagationStopped()) {
                     lastElement.addEventListener(type, stopPropagationCallback);
                   }
@@ -4935,7 +4935,7 @@
                   if (event.isPropagationStopped()) {
                     lastElement.removeEventListener(type, stopPropagationCallback);
                   }
-                  jQuery2.event.triggered = void 0;
+                  jQuery3.event.triggered = void 0;
                   if (tmp) {
                     elem[ontype] = tmp;
                   }
@@ -4945,36 +4945,36 @@
             return event.result;
           },
           simulate: function(type, elem, event) {
-            var e = jQuery2.extend(
-              new jQuery2.Event(),
+            var e = jQuery3.extend(
+              new jQuery3.Event(),
               event,
               {
                 type,
                 isSimulated: true
               }
             );
-            jQuery2.event.trigger(e, null, elem);
+            jQuery3.event.trigger(e, null, elem);
           }
         });
-        jQuery2.fn.extend({
+        jQuery3.fn.extend({
           trigger: function(type, data) {
             return this.each(function() {
-              jQuery2.event.trigger(type, data, this);
+              jQuery3.event.trigger(type, data, this);
             });
           },
           triggerHandler: function(type, data) {
             var elem = this[0];
             if (elem) {
-              return jQuery2.event.trigger(type, data, elem, true);
+              return jQuery3.event.trigger(type, data, elem, true);
             }
           }
         });
         if (!support.focusin) {
-          jQuery2.each({ focus: "focusin", blur: "focusout" }, function(orig, fix) {
+          jQuery3.each({ focus: "focusin", blur: "focusout" }, function(orig, fix) {
             var handler = function(event) {
-              jQuery2.event.simulate(fix, event.target, jQuery2.event.fix(event));
+              jQuery3.event.simulate(fix, event.target, jQuery3.event.fix(event));
             };
-            jQuery2.event.special[fix] = {
+            jQuery3.event.special[fix] = {
               setup: function() {
                 var doc = this.ownerDocument || this.document || this, attaches = dataPriv.access(doc, fix);
                 if (!attaches) {
@@ -4997,7 +4997,7 @@
         var location = window2.location;
         var nonce = { guid: Date.now() };
         var rquery = /\?/;
-        jQuery2.parseXML = function(data) {
+        jQuery3.parseXML = function(data) {
           var xml, parserErrorElem;
           if (!data || typeof data !== "string") {
             return null;
@@ -5008,7 +5008,7 @@
           }
           parserErrorElem = xml && xml.getElementsByTagName("parsererror")[0];
           if (!xml || parserErrorElem) {
-            jQuery2.error("Invalid XML: " + (parserErrorElem ? jQuery2.map(parserErrorElem.childNodes, function(el) {
+            jQuery3.error("Invalid XML: " + (parserErrorElem ? jQuery3.map(parserErrorElem.childNodes, function(el) {
               return el.textContent;
             }).join("\n") : data));
           }
@@ -5018,7 +5018,7 @@
         function buildParams(prefix, obj, traditional, add) {
           var name;
           if (Array.isArray(obj)) {
-            jQuery2.each(obj, function(i, v) {
+            jQuery3.each(obj, function(i, v) {
               if (traditional || rbracket.test(prefix)) {
                 add(prefix, v);
               } else {
@@ -5038,7 +5038,7 @@
             add(prefix, obj);
           }
         }
-        jQuery2.param = function(a, traditional) {
+        jQuery3.param = function(a, traditional) {
           var prefix, s = [], add = function(key, valueOrFunction) {
             var value = isFunction(valueOrFunction) ? valueOrFunction() : valueOrFunction;
             s[s.length] = encodeURIComponent(key) + "=" + encodeURIComponent(value == null ? "" : value);
@@ -5046,8 +5046,8 @@
           if (a == null) {
             return "";
           }
-          if (Array.isArray(a) || a.jquery && !jQuery2.isPlainObject(a)) {
-            jQuery2.each(a, function() {
+          if (Array.isArray(a) || a.jquery && !jQuery3.isPlainObject(a)) {
+            jQuery3.each(a, function() {
               add(this.name, this.value);
             });
           } else {
@@ -5057,24 +5057,24 @@
           }
           return s.join("&");
         };
-        jQuery2.fn.extend({
+        jQuery3.fn.extend({
           serialize: function() {
-            return jQuery2.param(this.serializeArray());
+            return jQuery3.param(this.serializeArray());
           },
           serializeArray: function() {
             return this.map(function() {
-              var elements = jQuery2.prop(this, "elements");
-              return elements ? jQuery2.makeArray(elements) : this;
+              var elements = jQuery3.prop(this, "elements");
+              return elements ? jQuery3.makeArray(elements) : this;
             }).filter(function() {
               var type = this.type;
-              return this.name && !jQuery2(this).is(":disabled") && rsubmittable.test(this.nodeName) && !rsubmitterTypes.test(type) && (this.checked || !rcheckableType.test(type));
+              return this.name && !jQuery3(this).is(":disabled") && rsubmittable.test(this.nodeName) && !rsubmitterTypes.test(type) && (this.checked || !rcheckableType.test(type));
             }).map(function(_i, elem) {
-              var val = jQuery2(this).val();
+              var val = jQuery3(this).val();
               if (val == null) {
                 return null;
               }
               if (Array.isArray(val)) {
-                return jQuery2.map(val, function(val2) {
+                return jQuery3.map(val, function(val2) {
                   return { name: elem.name, value: val2.replace(rCRLF, "\r\n") };
                 });
               }
@@ -5108,7 +5108,7 @@
           function inspect(dataType) {
             var selected;
             inspected[dataType] = true;
-            jQuery2.each(structure[dataType] || [], function(_, prefilterOrFactory) {
+            jQuery3.each(structure[dataType] || [], function(_, prefilterOrFactory) {
               var dataTypeOrTransport = prefilterOrFactory(options, originalOptions, jqXHR);
               if (typeof dataTypeOrTransport === "string" && !seekingTransport && !inspected[dataTypeOrTransport]) {
                 options.dataTypes.unshift(dataTypeOrTransport);
@@ -5123,14 +5123,14 @@
           return inspect(options.dataTypes[0]) || !inspected["*"] && inspect("*");
         }
         function ajaxExtend(target, src) {
-          var key, deep, flatOptions = jQuery2.ajaxSettings.flatOptions || {};
+          var key, deep, flatOptions = jQuery3.ajaxSettings.flatOptions || {};
           for (key in src) {
             if (src[key] !== void 0) {
               (flatOptions[key] ? target : deep || (deep = {}))[key] = src[key];
             }
           }
           if (deep) {
-            jQuery2.extend(true, target, deep);
+            jQuery3.extend(true, target, deep);
           }
           return target;
         }
@@ -5229,7 +5229,7 @@
           }
           return { state: "success", data: response };
         }
-        jQuery2.extend({
+        jQuery3.extend({
           active: 0,
           lastModified: {},
           etag: {},
@@ -5262,7 +5262,7 @@
               "* text": String,
               "text html": true,
               "text json": JSON.parse,
-              "text xml": jQuery2.parseXML
+              "text xml": jQuery3.parseXML
             },
             flatOptions: {
               url: true,
@@ -5270,7 +5270,7 @@
             }
           },
           ajaxSetup: function(target, settings) {
-            return settings ? ajaxExtend(ajaxExtend(target, jQuery2.ajaxSettings), settings) : ajaxExtend(jQuery2.ajaxSettings, target);
+            return settings ? ajaxExtend(ajaxExtend(target, jQuery3.ajaxSettings), settings) : ajaxExtend(jQuery3.ajaxSettings, target);
           },
           ajaxPrefilter: addToPrefiltersOrTransports(prefilters),
           ajaxTransport: addToPrefiltersOrTransports(transports),
@@ -5280,7 +5280,7 @@
               url = void 0;
             }
             options = options || {};
-            var transport, cacheURL, responseHeadersString, responseHeaders, timeoutTimer, urlAnchor, completed2, fireGlobals, i, uncached, s = jQuery2.ajaxSetup({}, options), callbackContext = s.context || s, globalEventContext = s.context && (callbackContext.nodeType || callbackContext.jquery) ? jQuery2(callbackContext) : jQuery2.event, deferred = jQuery2.Deferred(), completeDeferred = jQuery2.Callbacks("once memory"), statusCode = s.statusCode || {}, requestHeaders = {}, requestHeadersNames = {}, strAbort = "canceled", jqXHR = {
+            var transport, cacheURL, responseHeadersString, responseHeaders, timeoutTimer, urlAnchor, completed2, fireGlobals, i, uncached, s = jQuery3.ajaxSetup({}, options), callbackContext = s.context || s, globalEventContext = s.context && (callbackContext.nodeType || callbackContext.jquery) ? jQuery3(callbackContext) : jQuery3.event, deferred = jQuery3.Deferred(), completeDeferred = jQuery3.Callbacks("once memory"), statusCode = s.statusCode || {}, requestHeaders = {}, requestHeadersNames = {}, strAbort = "canceled", jqXHR = {
               readyState: 0,
               getResponseHeader: function(key) {
                 var match;
@@ -5348,15 +5348,15 @@
               }
             }
             if (s.data && s.processData && typeof s.data !== "string") {
-              s.data = jQuery2.param(s.data, s.traditional);
+              s.data = jQuery3.param(s.data, s.traditional);
             }
             inspectPrefiltersOrTransports(prefilters, s, options, jqXHR);
             if (completed2) {
               return jqXHR;
             }
-            fireGlobals = jQuery2.event && s.global;
-            if (fireGlobals && jQuery2.active++ === 0) {
-              jQuery2.event.trigger("ajaxStart");
+            fireGlobals = jQuery3.event && s.global;
+            if (fireGlobals && jQuery3.active++ === 0) {
+              jQuery3.event.trigger("ajaxStart");
             }
             s.type = s.type.toUpperCase();
             s.hasContent = !rnoContent.test(s.type);
@@ -5376,11 +5376,11 @@
               s.data = s.data.replace(r20, "+");
             }
             if (s.ifModified) {
-              if (jQuery2.lastModified[cacheURL]) {
-                jqXHR.setRequestHeader("If-Modified-Since", jQuery2.lastModified[cacheURL]);
+              if (jQuery3.lastModified[cacheURL]) {
+                jqXHR.setRequestHeader("If-Modified-Since", jQuery3.lastModified[cacheURL]);
               }
-              if (jQuery2.etag[cacheURL]) {
-                jqXHR.setRequestHeader("If-None-Match", jQuery2.etag[cacheURL]);
+              if (jQuery3.etag[cacheURL]) {
+                jqXHR.setRequestHeader("If-None-Match", jQuery3.etag[cacheURL]);
               }
             }
             if (s.data && s.hasContent && s.contentType !== false || options.contentType) {
@@ -5442,7 +5442,7 @@
               if (responses) {
                 response = ajaxHandleResponses(s, jqXHR, responses);
               }
-              if (!isSuccess && jQuery2.inArray("script", s.dataTypes) > -1 && jQuery2.inArray("json", s.dataTypes) < 0) {
+              if (!isSuccess && jQuery3.inArray("script", s.dataTypes) > -1 && jQuery3.inArray("json", s.dataTypes) < 0) {
                 s.converters["text script"] = function() {
                 };
               }
@@ -5451,11 +5451,11 @@
                 if (s.ifModified) {
                   modified = jqXHR.getResponseHeader("Last-Modified");
                   if (modified) {
-                    jQuery2.lastModified[cacheURL] = modified;
+                    jQuery3.lastModified[cacheURL] = modified;
                   }
                   modified = jqXHR.getResponseHeader("etag");
                   if (modified) {
-                    jQuery2.etag[cacheURL] = modified;
+                    jQuery3.etag[cacheURL] = modified;
                   }
                 }
                 if (status === 204 || s.type === "HEAD") {
@@ -5495,37 +5495,37 @@
               completeDeferred.fireWith(callbackContext, [jqXHR, statusText]);
               if (fireGlobals) {
                 globalEventContext.trigger("ajaxComplete", [jqXHR, s]);
-                if (!--jQuery2.active) {
-                  jQuery2.event.trigger("ajaxStop");
+                if (!--jQuery3.active) {
+                  jQuery3.event.trigger("ajaxStop");
                 }
               }
             }
             return jqXHR;
           },
           getJSON: function(url, data, callback) {
-            return jQuery2.get(url, data, callback, "json");
+            return jQuery3.get(url, data, callback, "json");
           },
           getScript: function(url, callback) {
-            return jQuery2.get(url, void 0, callback, "script");
+            return jQuery3.get(url, void 0, callback, "script");
           }
         });
-        jQuery2.each(["get", "post"], function(_i, method) {
-          jQuery2[method] = function(url, data, callback, type) {
+        jQuery3.each(["get", "post"], function(_i, method) {
+          jQuery3[method] = function(url, data, callback, type) {
             if (isFunction(data)) {
               type = type || callback;
               callback = data;
               data = void 0;
             }
-            return jQuery2.ajax(jQuery2.extend({
+            return jQuery3.ajax(jQuery3.extend({
               url,
               type: method,
               dataType: type,
               data,
               success: callback
-            }, jQuery2.isPlainObject(url) && url));
+            }, jQuery3.isPlainObject(url) && url));
           };
         });
-        jQuery2.ajaxPrefilter(function(s) {
+        jQuery3.ajaxPrefilter(function(s) {
           var i;
           for (i in s.headers) {
             if (i.toLowerCase() === "content-type") {
@@ -5533,8 +5533,8 @@
             }
           }
         });
-        jQuery2._evalUrl = function(url, options, doc) {
-          return jQuery2.ajax({
+        jQuery3._evalUrl = function(url, options, doc) {
+          return jQuery3.ajax({
             url,
             type: "GET",
             dataType: "script",
@@ -5546,18 +5546,18 @@
               }
             },
             dataFilter: function(response) {
-              jQuery2.globalEval(response, options, doc);
+              jQuery3.globalEval(response, options, doc);
             }
           });
         };
-        jQuery2.fn.extend({
+        jQuery3.fn.extend({
           wrapAll: function(html) {
             var wrap;
             if (this[0]) {
               if (isFunction(html)) {
                 html = html.call(this[0]);
               }
-              wrap = jQuery2(html, this[0].ownerDocument).eq(0).clone(true);
+              wrap = jQuery3(html, this[0].ownerDocument).eq(0).clone(true);
               if (this[0].parentNode) {
                 wrap.insertBefore(this[0]);
               }
@@ -5574,11 +5574,11 @@
           wrapInner: function(html) {
             if (isFunction(html)) {
               return this.each(function(i) {
-                jQuery2(this).wrapInner(html.call(this, i));
+                jQuery3(this).wrapInner(html.call(this, i));
               });
             }
             return this.each(function() {
-              var self = jQuery2(this), contents = self.contents();
+              var self = jQuery3(this), contents = self.contents();
               if (contents.length) {
                 contents.wrapAll(html);
               } else {
@@ -5589,23 +5589,23 @@
           wrap: function(html) {
             var htmlIsFunction = isFunction(html);
             return this.each(function(i) {
-              jQuery2(this).wrapAll(htmlIsFunction ? html.call(this, i) : html);
+              jQuery3(this).wrapAll(htmlIsFunction ? html.call(this, i) : html);
             });
           },
           unwrap: function(selector) {
             this.parent(selector).not("body").each(function() {
-              jQuery2(this).replaceWith(this.childNodes);
+              jQuery3(this).replaceWith(this.childNodes);
             });
             return this;
           }
         });
-        jQuery2.expr.pseudos.hidden = function(elem) {
-          return !jQuery2.expr.pseudos.visible(elem);
+        jQuery3.expr.pseudos.hidden = function(elem) {
+          return !jQuery3.expr.pseudos.visible(elem);
         };
-        jQuery2.expr.pseudos.visible = function(elem) {
+        jQuery3.expr.pseudos.visible = function(elem) {
           return !!(elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length);
         };
-        jQuery2.ajaxSettings.xhr = function() {
+        jQuery3.ajaxSettings.xhr = function() {
           try {
             return new window2.XMLHttpRequest();
           } catch (e) {
@@ -5614,10 +5614,10 @@
         var xhrSuccessStatus = {
           0: 200,
           1223: 204
-        }, xhrSupported = jQuery2.ajaxSettings.xhr();
+        }, xhrSupported = jQuery3.ajaxSettings.xhr();
         support.cors = !!xhrSupported && "withCredentials" in xhrSupported;
         support.ajax = xhrSupported = !!xhrSupported;
-        jQuery2.ajaxTransport(function(options) {
+        jQuery3.ajaxTransport(function(options) {
           var callback, errorCallback;
           if (support.cors || xhrSupported && !options.crossDomain) {
             return {
@@ -5702,12 +5702,12 @@
             };
           }
         });
-        jQuery2.ajaxPrefilter(function(s) {
+        jQuery3.ajaxPrefilter(function(s) {
           if (s.crossDomain) {
             s.contents.script = false;
           }
         });
-        jQuery2.ajaxSetup({
+        jQuery3.ajaxSetup({
           accepts: {
             script: "text/javascript, application/javascript, application/ecmascript, application/x-ecmascript"
           },
@@ -5716,12 +5716,12 @@
           },
           converters: {
             "text script": function(text) {
-              jQuery2.globalEval(text);
+              jQuery3.globalEval(text);
               return text;
             }
           }
         });
-        jQuery2.ajaxPrefilter("script", function(s) {
+        jQuery3.ajaxPrefilter("script", function(s) {
           if (s.cache === void 0) {
             s.cache = false;
           }
@@ -5729,12 +5729,12 @@
             s.type = "GET";
           }
         });
-        jQuery2.ajaxTransport("script", function(s) {
+        jQuery3.ajaxTransport("script", function(s) {
           if (s.crossDomain || s.scriptAttrs) {
             var script, callback;
             return {
               send: function(_, complete) {
-                script = jQuery2("<script>").attr(s.scriptAttrs || {}).prop({ charset: s.scriptCharset, src: s.url }).on("load error", callback = function(evt) {
+                script = jQuery3("<script>").attr(s.scriptAttrs || {}).prop({ charset: s.scriptCharset, src: s.url }).on("load error", callback = function(evt) {
                   script.remove();
                   callback = null;
                   if (evt) {
@@ -5752,15 +5752,15 @@
           }
         });
         var oldCallbacks = [], rjsonp = /(=)\?(?=&|$)|\?\?/;
-        jQuery2.ajaxSetup({
+        jQuery3.ajaxSetup({
           jsonp: "callback",
           jsonpCallback: function() {
-            var callback = oldCallbacks.pop() || jQuery2.expando + "_" + nonce.guid++;
+            var callback = oldCallbacks.pop() || jQuery3.expando + "_" + nonce.guid++;
             this[callback] = true;
             return callback;
           }
         });
-        jQuery2.ajaxPrefilter("json jsonp", function(s, originalSettings, jqXHR) {
+        jQuery3.ajaxPrefilter("json jsonp", function(s, originalSettings, jqXHR) {
           var callbackName, overwritten, responseContainer, jsonProp = s.jsonp !== false && (rjsonp.test(s.url) ? "url" : typeof s.data === "string" && (s.contentType || "").indexOf("application/x-www-form-urlencoded") === 0 && rjsonp.test(s.data) && "data");
           if (jsonProp || s.dataTypes[0] === "jsonp") {
             callbackName = s.jsonpCallback = isFunction(s.jsonpCallback) ? s.jsonpCallback() : s.jsonpCallback;
@@ -5771,7 +5771,7 @@
             }
             s.converters["script json"] = function() {
               if (!responseContainer) {
-                jQuery2.error(callbackName + " was not called");
+                jQuery3.error(callbackName + " was not called");
               }
               return responseContainer[0];
             };
@@ -5782,7 +5782,7 @@
             };
             jqXHR.always(function() {
               if (overwritten === void 0) {
-                jQuery2(window2).removeProp(callbackName);
+                jQuery3(window2).removeProp(callbackName);
               } else {
                 window2[callbackName] = overwritten;
               }
@@ -5803,7 +5803,7 @@
           body.innerHTML = "<form></form><form></form>";
           return body.childNodes.length === 2;
         }();
-        jQuery2.parseHTML = function(data, context, keepScripts) {
+        jQuery3.parseHTML = function(data, context, keepScripts) {
           if (typeof data !== "string") {
             return [];
           }
@@ -5829,11 +5829,11 @@
           }
           parsed = buildFragment([data], context, scripts);
           if (scripts && scripts.length) {
-            jQuery2(scripts).remove();
+            jQuery3(scripts).remove();
           }
-          return jQuery2.merge([], parsed.childNodes);
+          return jQuery3.merge([], parsed.childNodes);
         };
-        jQuery2.fn.load = function(url, params, callback) {
+        jQuery3.fn.load = function(url, params, callback) {
           var selector, type, response, self = this, off = url.indexOf(" ");
           if (off > -1) {
             selector = stripAndCollapse(url.slice(off));
@@ -5846,14 +5846,14 @@
             type = "POST";
           }
           if (self.length > 0) {
-            jQuery2.ajax({
+            jQuery3.ajax({
               url,
               type: type || "GET",
               dataType: "html",
               data: params
             }).done(function(responseText) {
               response = arguments;
-              self.html(selector ? jQuery2("<div>").append(jQuery2.parseHTML(responseText)).find(selector) : responseText);
+              self.html(selector ? jQuery3("<div>").append(jQuery3.parseHTML(responseText)).find(selector) : responseText);
             }).always(callback && function(jqXHR, status) {
               self.each(function() {
                 callback.apply(this, response || [jqXHR.responseText, status, jqXHR]);
@@ -5862,20 +5862,20 @@
           }
           return this;
         };
-        jQuery2.expr.pseudos.animated = function(elem) {
-          return jQuery2.grep(jQuery2.timers, function(fn) {
+        jQuery3.expr.pseudos.animated = function(elem) {
+          return jQuery3.grep(jQuery3.timers, function(fn) {
             return elem === fn.elem;
           }).length;
         };
-        jQuery2.offset = {
+        jQuery3.offset = {
           setOffset: function(elem, options, i) {
-            var curPosition, curLeft, curCSSTop, curTop, curOffset, curCSSLeft, calculatePosition, position = jQuery2.css(elem, "position"), curElem = jQuery2(elem), props = {};
+            var curPosition, curLeft, curCSSTop, curTop, curOffset, curCSSLeft, calculatePosition, position = jQuery3.css(elem, "position"), curElem = jQuery3(elem), props = {};
             if (position === "static") {
               elem.style.position = "relative";
             }
             curOffset = curElem.offset();
-            curCSSTop = jQuery2.css(elem, "top");
-            curCSSLeft = jQuery2.css(elem, "left");
+            curCSSTop = jQuery3.css(elem, "top");
+            curCSSLeft = jQuery3.css(elem, "left");
             calculatePosition = (position === "absolute" || position === "fixed") && (curCSSTop + curCSSLeft).indexOf("auto") > -1;
             if (calculatePosition) {
               curPosition = curElem.position();
@@ -5886,7 +5886,7 @@
               curLeft = parseFloat(curCSSLeft) || 0;
             }
             if (isFunction(options)) {
-              options = options.call(elem, i, jQuery2.extend({}, curOffset));
+              options = options.call(elem, i, jQuery3.extend({}, curOffset));
             }
             if (options.top != null) {
               props.top = options.top - curOffset.top + curTop;
@@ -5901,11 +5901,11 @@
             }
           }
         };
-        jQuery2.fn.extend({
+        jQuery3.fn.extend({
           offset: function(options) {
             if (arguments.length) {
               return options === void 0 ? this : this.each(function(i) {
-                jQuery2.offset.setOffset(this, options, i);
+                jQuery3.offset.setOffset(this, options, i);
               });
             }
             var rect, win, elem = this[0];
@@ -5927,39 +5927,39 @@
               return;
             }
             var offsetParent, offset, doc, elem = this[0], parentOffset = { top: 0, left: 0 };
-            if (jQuery2.css(elem, "position") === "fixed") {
+            if (jQuery3.css(elem, "position") === "fixed") {
               offset = elem.getBoundingClientRect();
             } else {
               offset = this.offset();
               doc = elem.ownerDocument;
               offsetParent = elem.offsetParent || doc.documentElement;
-              while (offsetParent && (offsetParent === doc.body || offsetParent === doc.documentElement) && jQuery2.css(offsetParent, "position") === "static") {
+              while (offsetParent && (offsetParent === doc.body || offsetParent === doc.documentElement) && jQuery3.css(offsetParent, "position") === "static") {
                 offsetParent = offsetParent.parentNode;
               }
               if (offsetParent && offsetParent !== elem && offsetParent.nodeType === 1) {
-                parentOffset = jQuery2(offsetParent).offset();
-                parentOffset.top += jQuery2.css(offsetParent, "borderTopWidth", true);
-                parentOffset.left += jQuery2.css(offsetParent, "borderLeftWidth", true);
+                parentOffset = jQuery3(offsetParent).offset();
+                parentOffset.top += jQuery3.css(offsetParent, "borderTopWidth", true);
+                parentOffset.left += jQuery3.css(offsetParent, "borderLeftWidth", true);
               }
             }
             return {
-              top: offset.top - parentOffset.top - jQuery2.css(elem, "marginTop", true),
-              left: offset.left - parentOffset.left - jQuery2.css(elem, "marginLeft", true)
+              top: offset.top - parentOffset.top - jQuery3.css(elem, "marginTop", true),
+              left: offset.left - parentOffset.left - jQuery3.css(elem, "marginLeft", true)
             };
           },
           offsetParent: function() {
             return this.map(function() {
               var offsetParent = this.offsetParent;
-              while (offsetParent && jQuery2.css(offsetParent, "position") === "static") {
+              while (offsetParent && jQuery3.css(offsetParent, "position") === "static") {
                 offsetParent = offsetParent.offsetParent;
               }
               return offsetParent || documentElement;
             });
           }
         });
-        jQuery2.each({ scrollLeft: "pageXOffset", scrollTop: "pageYOffset" }, function(method, prop) {
+        jQuery3.each({ scrollLeft: "pageXOffset", scrollTop: "pageYOffset" }, function(method, prop) {
           var top = "pageYOffset" === prop;
-          jQuery2.fn[method] = function(val) {
+          jQuery3.fn[method] = function(val) {
             return access(this, function(elem, method2, val2) {
               var win;
               if (isWindow(elem)) {
@@ -5981,24 +5981,24 @@
             }, method, val, arguments.length);
           };
         });
-        jQuery2.each(["top", "left"], function(_i, prop) {
-          jQuery2.cssHooks[prop] = addGetHookIf(
+        jQuery3.each(["top", "left"], function(_i, prop) {
+          jQuery3.cssHooks[prop] = addGetHookIf(
             support.pixelPosition,
             function(elem, computed) {
               if (computed) {
                 computed = curCSS(elem, prop);
-                return rnumnonpx.test(computed) ? jQuery2(elem).position()[prop] + "px" : computed;
+                return rnumnonpx.test(computed) ? jQuery3(elem).position()[prop] + "px" : computed;
               }
             }
           );
         });
-        jQuery2.each({ Height: "height", Width: "width" }, function(name, type) {
-          jQuery2.each({
+        jQuery3.each({ Height: "height", Width: "width" }, function(name, type) {
+          jQuery3.each({
             padding: "inner" + name,
             content: type,
             "": "outer" + name
           }, function(defaultExtra, funcName) {
-            jQuery2.fn[funcName] = function(margin, value) {
+            jQuery3.fn[funcName] = function(margin, value) {
               var chainable = arguments.length && (defaultExtra || typeof margin !== "boolean"), extra = defaultExtra || (margin === true || value === true ? "margin" : "border");
               return access(this, function(elem, type2, value2) {
                 var doc;
@@ -6015,12 +6015,12 @@
                     doc["client" + name]
                   );
                 }
-                return value2 === void 0 ? jQuery2.css(elem, type2, extra) : jQuery2.style(elem, type2, value2, extra);
+                return value2 === void 0 ? jQuery3.css(elem, type2, extra) : jQuery3.style(elem, type2, value2, extra);
               }, type, chainable ? margin : void 0, chainable);
             };
           });
         });
-        jQuery2.each([
+        jQuery3.each([
           "ajaxStart",
           "ajaxStop",
           "ajaxComplete",
@@ -6028,11 +6028,11 @@
           "ajaxSuccess",
           "ajaxSend"
         ], function(_i, type) {
-          jQuery2.fn[type] = function(fn) {
+          jQuery3.fn[type] = function(fn) {
             return this.on(type, fn);
           };
         });
-        jQuery2.fn.extend({
+        jQuery3.fn.extend({
           bind: function(types, data, fn) {
             return this.on(types, null, data, fn);
           },
@@ -6049,16 +6049,16 @@
             return this.mouseenter(fnOver).mouseleave(fnOut || fnOver);
           }
         });
-        jQuery2.each(
+        jQuery3.each(
           "blur focus focusin focusout resize scroll click dblclick mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave change select submit keydown keypress keyup contextmenu".split(" "),
           function(_i, name) {
-            jQuery2.fn[name] = function(data, fn) {
+            jQuery3.fn[name] = function(data, fn) {
               return arguments.length > 0 ? this.on(name, null, data, fn) : this.trigger(name);
             };
           }
         );
         var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
-        jQuery2.proxy = function(fn, context) {
+        jQuery3.proxy = function(fn, context) {
           var tmp, args, proxy;
           if (typeof context === "string") {
             tmp = fn[context];
@@ -6072,50 +6072,50 @@
           proxy = function() {
             return fn.apply(context || this, args.concat(slice.call(arguments)));
           };
-          proxy.guid = fn.guid = fn.guid || jQuery2.guid++;
+          proxy.guid = fn.guid = fn.guid || jQuery3.guid++;
           return proxy;
         };
-        jQuery2.holdReady = function(hold) {
+        jQuery3.holdReady = function(hold) {
           if (hold) {
-            jQuery2.readyWait++;
+            jQuery3.readyWait++;
           } else {
-            jQuery2.ready(true);
+            jQuery3.ready(true);
           }
         };
-        jQuery2.isArray = Array.isArray;
-        jQuery2.parseJSON = JSON.parse;
-        jQuery2.nodeName = nodeName;
-        jQuery2.isFunction = isFunction;
-        jQuery2.isWindow = isWindow;
-        jQuery2.camelCase = camelCase;
-        jQuery2.type = toType;
-        jQuery2.now = Date.now;
-        jQuery2.isNumeric = function(obj) {
-          var type = jQuery2.type(obj);
+        jQuery3.isArray = Array.isArray;
+        jQuery3.parseJSON = JSON.parse;
+        jQuery3.nodeName = nodeName;
+        jQuery3.isFunction = isFunction;
+        jQuery3.isWindow = isWindow;
+        jQuery3.camelCase = camelCase;
+        jQuery3.type = toType;
+        jQuery3.now = Date.now;
+        jQuery3.isNumeric = function(obj) {
+          var type = jQuery3.type(obj);
           return (type === "number" || type === "string") && !isNaN(obj - parseFloat(obj));
         };
-        jQuery2.trim = function(text) {
+        jQuery3.trim = function(text) {
           return text == null ? "" : (text + "").replace(rtrim, "");
         };
         if (typeof define === "function" && define.amd) {
           define("jquery", [], function() {
-            return jQuery2;
+            return jQuery3;
           });
         }
         var _jQuery = window2.jQuery, _$ = window2.$;
-        jQuery2.noConflict = function(deep) {
-          if (window2.$ === jQuery2) {
+        jQuery3.noConflict = function(deep) {
+          if (window2.$ === jQuery3) {
             window2.$ = _$;
           }
-          if (deep && window2.jQuery === jQuery2) {
+          if (deep && window2.jQuery === jQuery3) {
             window2.jQuery = _jQuery;
           }
-          return jQuery2;
+          return jQuery3;
         };
         if (typeof noGlobal === "undefined") {
-          window2.jQuery = window2.$ = jQuery2;
+          window2.jQuery = window2.$ = jQuery3;
         }
-        return jQuery2;
+        return jQuery3;
       });
     }
   });
@@ -6185,6 +6185,30 @@
     }
   };
 
+  // src/js/mods/ContactModal.js
+  var import_jquery2 = __toESM(require_jquery(), 1);
+  var ContactModal = class {
+    constructor() {
+      this.contacts = (0, import_jquery2.default)(".cnt-modal-tg");
+      this.modal = (0, import_jquery2.default)(".contact-modal");
+      this.close = (0, import_jquery2.default)(".modal-close");
+      this.dom = (0, import_jquery2.default)(document);
+    }
+    registerEvents() {
+      this.contacts.click(this.toggleModal.bind(this));
+      this.close.click(this.toggleModal.bind(this));
+      this.dom.keyup(this.keyPressed.bind(this));
+    }
+    toggleModal() {
+      this.modal.toggle();
+      return false;
+    }
+    keyPressed(e) {
+      if (e.keyCode == 27)
+        this.toggleModal();
+    }
+  };
+
   // src/js/main.js
   new Burger().registerEvents();
   var features = document.querySelectorAll(".sub");
@@ -6192,6 +6216,7 @@
   var testimonials = document.querySelectorAll(".subs");
   new ScrollObserver(testimonials, 10).observe();
   new FixHeader().init();
+  new ContactModal().registerEvents();
 })();
 /*!
  * jQuery JavaScript Library v3.6.0
